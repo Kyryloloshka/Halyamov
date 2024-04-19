@@ -1,0 +1,4 @@
+@use "../../lib/utils_scss/mixins";
+.navbar-gap {
+  @include mixins.adaptiveValue(column-gap, 50, 10);
+}

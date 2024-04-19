@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "./globals.scss";
 import NavBar from "@/components/NavBar/NavBar";
 import BackgroundWrapper from "@/components/BackgroundWrapper/BackgroundWrapper";
 
@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <BackgroundWrapper>
-          <div className="wrapper w-screen h-screen flex flex-col">
+          <div className="w-screen h-screen flex flex-col cont__container">
             <NavBar/>
             {children}
           </div>

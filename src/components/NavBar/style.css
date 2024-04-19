@@ -1,0 +1,10 @@
+.navbar-gap {
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+}
+@media (max-width: 1050px) {
+  .navbar-gap {
+    -moz-column-gap: calc(10px + 40 * (100vw - 320px) / 730);
+         column-gap: calc(10px + 40 * (100vw - 320px) / 730);
+  }
+}/*# sourceMappingURL=style.css.map */

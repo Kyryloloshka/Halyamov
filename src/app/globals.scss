@@ -1,0 +1,181 @@
+@use 'sass:math';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*Онулення*/
+*{padding: 0;margin: 0;border: 0;}
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{height: 100%;width: 100%;font-size: 100%;line-height: 1;font-size: 14px;-ms-text-size-adjust: 100%;-moz-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/*--------------------*/
+
+
+
+// Адаптивне значення
+@mixin adaptiveValue($property, $startSize, $minSize, $type:1) {
+	$addSize: $startSize - $minSize;
+
+	@if $type ==1 {
+		#{$property}: $startSize + px;
+
+		@media (max-width: #{$containerWidth + px}) {
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$containerWidth - 320}));
+		}
+	}
+
+	@else if $type ==2 {
+		#{$property}: $startSize + px;
+
+		@media (min-width: #{$containerWidth + px}) {
+			#{$property}: calc(#{$minSize + px}+ #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+		}
+	}
+
+	@else {
+		#{$property}: calc(#{$minSize + px}+ #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+	}
+}
+
+// To %
+@function prc($pxOne, $pxTwo) {
+	$result: math.div($pxOne, $pxTwo) * 100%;
+	@return $result;
+}
+
+@function rem($px) {
+	$result: math.div($px, 14)+rem;
+	@return $result;
+}
+
+@function em($px, $fn: 14) {
+	$result: math.div($px, $fn)+em;
+	@return $result;
+}
+
+$primary-500: rgb(200, 111, 201);
+$primary-600: rgb(171, 96, 171);
+$secondary-500: rgb(69, 195, 230);
+$dark-1: rgb(0, 0, 0);
+$dark-2: rgb(13, 13, 13);
+$dark-3: rgb(23, 23, 23);
+$dark-4: rgb(43, 43, 43);
+$dark-5: rgb(55, 55, 55);
+$light-1: rgb(255, 255, 255);
+$light-2: rgb(243, 235, 235);
+$light-3: rgb(237, 208, 208);
+$light-4: rgb(236, 205, 205);
+$light-5: rgb(227, 197, 197);
+$light-6: rgb(232, 183, 183);
+
+$fontSize: 16;
+
+// Мінімальна ширина сторінки
+$minWidth: 320;
+// Ширина полотна (макету)
+$maxWidth: 1980;
+// Ширина обмежувального контейнера (0 = нема обмежень)
+$maxWidthContainer: 1000;
+// Загальній відступ контейнера
+// (30 = 15px зліва та справа, 0 = нема відступу)
+$containerPadding: 50;
+$oneSidePadding: math.div($containerPadding, 2);
+// Тип адаптиву:
+// 1 = чуйність (у контейнера нема брейкпоінтів)
+// 2 = по брейк-поінтам (контейнер міняє смою ширину по брейк-поінтам
+$responsiveType: 1;
+
+// Ширина спрацьовування першого брейк-поінта
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+
+
+// Брейк-поінти
+$pc: em($containerWidth);// ПК, ноутбуки, декотрі планшети в горизонтальному положенні
+$tablet: em(991.98);// Планшети, декотрі телефони в горизонтальному положенні
+$mobile: em(767.98);// Телефони L
+$mobileSmall: em(479.98); // Телефони S
+
+body {
+	.lock & {
+		overflow: hidden;
+		touch-action: none;
+		overscroll-behavior: none;
+	}
+}
+
+html, a {
+	color: $dark-1;
+}
+
+body, 
+html {
+	width: 100%;
+	font-size: $fontSize;
+}
+
+.wrapper {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	// Прикріплюємо footer до низу
+	main {
+		flex: 1 1 auto;
+	}
+	// фікс слайдерів
+	> * {
+		min-width: 0;
+	}
+}
+
+@if ($responsiveType==1) {
+	// Чуйна
+	[class*="__container"] {
+		@if ($maxWidthContainer>0) {
+			max-width: math.div(calc($maxWidthContainer + $containerPadding), 14)+rem;
+			box-sizing: border-box;
+			margin: 0 auto;
+		}
+		@if ($containerPadding>0) {
+			@include adaptiveValue(padding-left, $oneSidePadding, 10);
+			@include adaptiveValue(padding-right, $oneSidePadding, 10);
+		}
+	}
+} @else {
+	// По брейк-поінтам
+	[class*="__container"] {
+		margin: 0 auto;
+		@if ($maxWidthContainer>0) {
+			max-width: math.div($maxWidthContainer, 14)+rem;
+			box-sizing: content-box;
+		} @else {
+			@if ($containerPadding>0) {
+				padding: 0 rem(math.div($containerPadding, 2));
+			}
+		}
+		@media (max-width: $pc) {
+			max-width: rem(970);
+		}
+		@media (max-width: $tablet) {
+			max-width: rem(750);
+		}
+		@media (max-width: $mobile) {
+			max-width: none;
+			@if ($containerPadding>0 and $maxWidthContainer>0) {
+				padding: 0 rem(math.div($containerPadding, 2));
+			}
+		}
+	}
+}

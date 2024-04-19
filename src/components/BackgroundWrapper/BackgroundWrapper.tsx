@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useRef } from 'react'
+import './style.scss'
 
 const BackgroundWrapper = ({children}: {children: React.ReactNode}) => {
   const interBubbleRef = useRef<HTMLDivElement>(null);
@@ -34,7 +35,7 @@ const BackgroundWrapper = ({children}: {children: React.ReactNode}) => {
   }, []);
   return (
     <>
-      <div className="text-container overflow-x-hidden">
+      <div className="text-container wrapper overflow-x-hidden">
         {children}
       </div>
       <div className="gradient-bg">

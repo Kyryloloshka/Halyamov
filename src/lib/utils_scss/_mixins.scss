@@ -1,0 +1,80 @@
+@use "sass:math";
+// Адаптивне значення
+@mixin adaptiveValue($property, $startSize, $minSize, $type:1) {
+	$addSize: $startSize - $minSize;
+
+	@if $type ==1 {
+		#{$property}: $startSize + px;
+
+		@media (max-width: #{$containerWidth + px}) {
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$containerWidth - 320}));
+		}
+	}
+
+	@else if $type ==2 {
+		#{$property}: $startSize + px;
+
+		@media (min-width: #{$containerWidth + px}) {
+			#{$property}: calc(#{$minSize + px}+ #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+		}
+	}
+
+	@else {
+		#{$property}: calc(#{$minSize + px}+ #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+	}
+}
+
+// To %
+@function prc($pxOne, $pxTwo) {
+	$result: math.div($pxOne, $pxTwo) * 100%;
+	@return $result;
+}
+
+@function rem($px) {
+	$result: math.div($px, 14)+rem;
+	@return $result;
+}
+
+
+$primary-500: rgb(200, 111, 201);
+$primary-600: rgb(171, 96, 171);
+$secondary-500: rgb(69, 195, 230);
+$dark-1: rgb(0, 0, 0);
+$dark-2: rgb(13, 13, 13);
+$dark-3: rgb(23, 23, 23);
+$dark-4: rgb(43, 43, 43);
+$dark-5: rgb(55, 55, 55);
+$light-1: rgb(255, 255, 255);
+$light-2: rgb(243, 235, 235);
+$light-3: rgb(237, 208, 208);
+$light-4: rgb(236, 205, 205);
+$light-5: rgb(227, 197, 197);
+$light-6: rgb(232, 183, 183);
+
+$fontSize: 16;
+
+// Мінімальна ширина сторінки
+$minWidth: 320;
+// Ширина полотна (макету)
+$maxWidth: 1980;
+// Ширина обмежувального контейнера (0 = нема обмежень)
+$maxWidthContainer: 1000;
+// Загальній відступ контейнера
+// (30 = 15px зліва та справа, 0 = нема відступу)
+$containerPadding: 50;
+$oneSidePadding: math.div($containerPadding, 2);
+// Тип адаптиву:
+// 1 = чуйність (у контейнера нема брейкпоінтів)
+// 2 = по брейк-поінтам (контейнер міняє смою ширину по брейк-поінтам
+$responsiveType: 1;
+
+// Ширина спрацьовування першого брейк-поінта
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+
+
+// Брейк-поінти
+$pc: em($containerWidth);// ПК, ноутбуки, декотрі планшети в горизонтальному положенні
+$tablet: em(991.98);// Планшети, декотрі телефони в горизонтальному положенні
+$mobile: em(767.98);// Телефони L
+$mobileSmall: em(479.98); // Телефони S
