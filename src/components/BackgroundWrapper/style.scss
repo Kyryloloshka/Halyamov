@@ -6,7 +6,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: #ffffff50;
 }
 
 :root {
@@ -161,7 +160,7 @@
 
   .interactive {
     position: absolute;
-    background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.3) 0, rgba(var(--color-interactive), 0) 50%) no-repeat;
+    background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.7) 0, rgba(var(--color-interactive), 0) 50%) no-repeat;
     mix-blend-mode: var(--blending);
 
     width: 100%;

@@ -31,7 +31,7 @@ const NavBar = () => {
         <div className='flex navbar-gap flex-wrap justify-center gap-y-1'>
           {navbarLinks.map((link) => {
             const isActive = link.href === pathname
-            return <Link className={`transition p-2 text-[16px] rounded-lg ${isActive && "bg-dark-2 text-light-1"}`} href={link.href}>{link.name}</Link>
+            return <Link key={link.href} className={`transition p-2 text-[16px] rounded-lg ${isActive && "bg-dark-2 text-light-1"}`} href={link.href}>{link.name}</Link>
           })}
         </div>
       </div>

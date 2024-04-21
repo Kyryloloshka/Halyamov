@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.scss";
 import NavBar from "@/components/NavBar/NavBar";
 import BackgroundWrapper from "@/components/BackgroundWrapper/BackgroundWrapper";
+import TranitionProvider from "@/components/TranitionProvider/TranitionProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,10 +21,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <BackgroundWrapper>
-          <div className="w-screen h-screen flex flex-col cont__container">
+					<TranitionProvider>
             <NavBar/>
             {children}
-          </div>
+					</TranitionProvider>
         </BackgroundWrapper>
       </body>
     </html>
