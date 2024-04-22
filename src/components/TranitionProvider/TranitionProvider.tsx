@@ -7,8 +7,7 @@ const TranitionProvider = ({children}: {children: React.ReactNode}) => {
 	const pathname = usePathname()
 	return (
 		<AnimatePresence mode="wait">
-			<div key={pathname} className="w-screen h-screen relative">
-				
+			<motion.div key={pathname} className="w-screen h-screen relative">
 				<motion.div 
 					className="h-[200vh] rotate-12 w-screen fixed bg-secondary-500 top-[-40vh] -left-[40vw] z-[48]"
 					animate={{width: "0vw"}}
@@ -55,9 +54,9 @@ const TranitionProvider = ({children}: {children: React.ReactNode}) => {
 					animate={{width: "0vw", transition: {delay: 1, ease: "easeInOut", duration: 0.8}}}
 				></motion.div>
 				<div className="w-screen h-screen flex flex-col cont__container">
-				{children}
+					{children}
 				</div>
-			</div>
+			</motion.div>
 		</AnimatePresence>
 	)
 }
