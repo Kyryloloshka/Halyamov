@@ -1,8 +1,12 @@
 "use client"
+import { motion } from 'framer-motion';
+
 export default function Home() {
   return (
-    <div className="">
-      Hello
-    </div>
+		<motion.div className='h-full' initial={{x:"-20vw"}} animate={{x: "0%"}} transition={{duration: 1, delay: 0.8, ease: "easeInOut"}}>
+			<div className="h-full">
+				Hello
+			</div>
+		</motion.div>
   )
 }
