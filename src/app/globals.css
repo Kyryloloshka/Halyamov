@@ -121,3 +121,7 @@ html {
     padding-right: calc(10px + 15 * (100vw - 320px) / 730);
   }
 }/*# sourceMappingURL=globals.css.map */
+
+.flex-center {
+  @apply flex items-center justify-center;
+}

@@ -21,10 +21,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <BackgroundWrapper>
-					<TranitionProvider>
-            <NavBar/>
+          <TranitionProvider>
+            <NavBar />
             {children}
-					</TranitionProvider>
+          </TranitionProvider>
         </BackgroundWrapper>
       </body>
     </html>
