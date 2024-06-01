@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.scss";
-import NavBar from "@/components/NavBar/NavBar";
-import BackgroundWrapper from "@/components/BackgroundWrapper/BackgroundWrapper";
-import TranitionProvider from "@/components/TranitionProvider/TranitionProvider";
+import NavBar from "@/components/NavBar";
+import BackgroundWrapper from "@/components/BackgroundWrapper";
+import StoreProvider from "@/components/StoreProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,15 +17,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log(inter.className);
   return (
     <html lang="en">
       <body className={inter.className}>
-        <BackgroundWrapper>
-          <TranitionProvider>
+        <StoreProvider>
+          <BackgroundWrapper>
             <NavBar />
-            {children}
-          </TranitionProvider>
-        </BackgroundWrapper>
+            <main className="text-container pt-24 wrapper w-full overflow-x-hidden">
+              {children}
+            </main>
+          </BackgroundWrapper>
+        </StoreProvider>
       </body>
     </html>
   );

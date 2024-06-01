@@ -2,3 +2,13 @@
 .navbar-gap {
   @include mixins.adaptiveValue(column-gap, 50, 10);
 }
+
+.bg-filter {
+  position: fixed; /* Фіксуємо елемент на екрані */
+  top: 0;
+  left: 0;
+  width: 100%;
+  backdrop-filter: blur(8px); /* Застосовуємо розмиття */
+  -webkit-backdrop-filter: blur(8px); /* Підтримка для Safari */
+  box-shadow: 0 2px 9px rgba(116, 6, 103, 0.1);
+}

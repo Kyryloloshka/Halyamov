@@ -1,8 +1,8 @@
-"use client"
-import { useEffect, useRef } from 'react'
-import './style.scss'
+"use client";
+import { useEffect, useRef } from "react";
+import "./style.scss";
 
-const BackgroundWrapper = ({children}: {children: React.ReactNode}) => {
+const BackgroundWrapper = ({ children }: { children: React.ReactNode }) => {
   const interBubbleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -15,9 +15,11 @@ const BackgroundWrapper = ({children}: {children: React.ReactNode}) => {
     function move() {
       curX += (tgX - curX) / 20;
       curY += (tgY - curY) / 20;
-      interBubbleRef.current!.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`;
+      interBubbleRef.current!.style.transform = `translate(${Math.round(
+        curX
+      )}px, ${Math.round(curY)}px)`;
       requestAnimationFrame(() => {
-        move()
+        move();
       });
     }
 
@@ -26,24 +28,31 @@ const BackgroundWrapper = ({children}: {children: React.ReactNode}) => {
       tgY = event.clientY;
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
     move();
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
   return (
     <>
-      <div className="text-container wrapper overflow-x-hidden">
-        {children}
-      </div>
+      {children}
       <div className="gradient-bg">
         <svg xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id="goo">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-              <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+              <feGaussianBlur
+                in="SourceGraphic"
+                stdDeviation="10"
+                result="blur"
+              />
+              <feColorMatrix
+                in="blur"
+                mode="matrix"
+                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
+                result="goo"
+              />
               <feBlend in="SourceGraphic" in2="goo" />
             </filter>
           </defs>
@@ -59,6 +68,6 @@ const BackgroundWrapper = ({children}: {children: React.ReactNode}) => {
       </div>
     </>
   );
-}
+};
 
-export default BackgroundWrapper
+export default BackgroundWrapper;
