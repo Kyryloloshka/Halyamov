@@ -14,8 +14,6 @@ export const animatePageIn = () => {
       const tl = gsap.timeline();
 
       tl.set(elem, {
-        zIndex: 1000 - index,
-        z: 1000,
         xPercent: 0,
       }).delay(0.3 + index * 0.1)
         .to(elem, {
@@ -46,8 +44,6 @@ export const animatePageOut = (href: string, router: AppRouterInstance) => {
       const tl = gsap.timeline();
 
       tl.set(elem, {
-        zIndex: 1000 - index,
-        z: 1000,
         xPercent: -100,
       }).delay((2 - index) * 0.1)
         .to(elem, {

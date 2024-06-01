@@ -10,6 +10,7 @@ const NavLink = ({ href, label }: { href: string; label: string }) => {
   const actions = useActionCreators(linksActions);
   const handleClick = () => {
     actions.setCurrentPageLabel(label);
+    actions.setCurrentHref(href);
     animatePageOut(href, router);
   };
   return (

@@ -4,6 +4,7 @@ import "./globals.scss";
 import NavBar from "@/components/NavBar";
 import BackgroundWrapper from "@/components/BackgroundWrapper";
 import StoreProvider from "@/components/StoreProvider";
+import TransitionProvider from "@/components/TransitionProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,13 +21,15 @@ export default function RootLayout({
   console.log(inter.className);
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.className + " relative"}>
         <StoreProvider>
           <BackgroundWrapper>
             <NavBar />
-            <main className="text-container pt-24 wrapper w-full overflow-x-hidden">
-              {children}
-            </main>
+            <TransitionProvider>
+              <main className="text-container pt-24 wrapper w-full relative z-[-3] overflow-x-hidden">
+                {children}
+              </main>
+            </TransitionProvider>
           </BackgroundWrapper>
         </StoreProvider>
       </body>
