@@ -24,12 +24,12 @@ export default function RootLayout({
       <body className={inter.className + " relative"}>
         <StoreProvider>
           <BackgroundWrapper>
-            <NavBar />
-            <TransitionProvider>
-              <main className="text-container pt-24 wrapper w-full relative z-[-3] overflow-x-hidden">
-                {children}
-              </main>
-            </TransitionProvider>
+            <div className="common-container wrapper">
+              <NavBar />
+              <TransitionProvider>
+                <main className=" w-full relative z-[-3] ">{children}</main>
+              </TransitionProvider>
+            </div>
           </BackgroundWrapper>
         </StoreProvider>
       </body>

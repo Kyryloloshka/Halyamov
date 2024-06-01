@@ -64,8 +64,7 @@ const TransitionProvider = ({ children }: { children: React.ReactNode }) => {
           {currentRoute}
         </div>
       </div>
-
-      <div className="">{children}</div>
+      {children}
     </TransitionContext.Provider>
   );
 };

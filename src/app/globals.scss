@@ -179,3 +179,22 @@ html {
 		}
 	}
 }
+
+.custom-scrollbar::-webkit-scrollbar {
+	@apply w-[5px] h-[5px] rounded-[2px] transition-colors relative;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+	@apply bg-light-2 dark:bg-secondary-500/0;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+	@apply bg-[#bf00ff99] rounded-[50px];
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+	background: #ff1ef4d4;
+}
+.common-container {
+	@apply h-full custom-scrollbar overflow-y-scroll;
+}
