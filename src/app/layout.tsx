@@ -27,7 +27,9 @@ export default function RootLayout({
             <div className="common-container wrapper">
               <NavBar />
               <TransitionProvider>
-                <main className=" w-full relative z-[-3] ">{children}</main>
+                <main className="w-full min-h-[100vh] relative z-[-3] ">
+                  {children}
+                </main>
               </TransitionProvider>
             </div>
           </BackgroundWrapper>
