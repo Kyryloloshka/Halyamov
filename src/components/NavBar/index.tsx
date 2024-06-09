@@ -26,7 +26,7 @@ const NavBar = () => {
   return (
     <nav className="bg-transparrent relative bg-filter">
       <div className="flex justify-between nav-bar__container items-center py-6 navbar-gap">
-        <Link href="/" className="text-2xl font-bold">
+        <Link href="/" className="text-2xl font-bold text-dark-2">
           Halyamov
         </Link>
         <div className="flex navbar-gap flex-wrap justify-center gap-y-1">

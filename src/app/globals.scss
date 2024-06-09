@@ -181,7 +181,7 @@ html {
 }
 
 .custom-scrollbar::-webkit-scrollbar {
-	@apply w-[5px] h-[5px] rounded-[2px] transition-colors relative;
+	@apply w-[4px] h-[4px] rounded-[2px] transition-colors relative;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
@@ -189,11 +189,11 @@ html {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-	@apply bg-[#bf00ff99] rounded-[50px];
+	@apply bg-[#ff4ab7be] rounded-[50px];
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-	background: #ff1ef4d4;
+	background: #c85ede;
 }
 .common-container {
 	@apply h-full custom-scrollbar overflow-y-scroll;
