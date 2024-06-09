@@ -3,27 +3,21 @@ import { animatePageOut } from "@/lib/animations";
 import { linksActions, useActionCreators } from "@/state";
 import { usePathname, useRouter } from "next/navigation";
 
-const NavLink = ({ href, label }: { href: string; label: string }) => {
-  const pathname = usePathname();
-  const isActive = href === pathname;
+const Link = ({ href, label, pageName, ...rest }: any) => {
   const router = useRouter();
   const actions = useActionCreators(linksActions);
+  const pathname = usePathname();
   const handleClick = () => {
     if (pathname === href) return;
-    actions.setCurrentPageLabel(label);
+    actions.setCurrentPageLabel(pageName);
     actions.setCurrentHref(href);
     animatePageOut(href, router);
   };
   return (
-    <button
-      className={`transition p-2 text-[16px] rounded-lg ${
-        isActive && "bg-dark-2 text-light-1"
-      }`}
-      onClick={handleClick}
-    >
+    <button onClick={handleClick} {...rest}>
       {label}
     </button>
   );
 };
 
-export default NavLink;
+export default Link;
