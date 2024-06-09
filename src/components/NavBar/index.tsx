@@ -24,8 +24,8 @@ const navbarLinks = [
 
 const NavBar = () => {
   return (
-    <nav className="bg-transparrent relative bg-filter">
-      <div className="flex justify-between nav-bar__container items-center py-6 navbar-gap">
+    <nav className="bg-transparrent min-h-[70px] flex items-center justify-center relative bg-filter">
+      <div className="flex flex-auto justify-between nav-bar__container items-center py-5 navbar-gap">
         <Link href="/" className="text-2xl font-bold text-dark-2">
           Halyamov
         </Link>

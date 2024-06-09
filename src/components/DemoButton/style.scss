@@ -1,0 +1,48 @@
+@use "../../lib/utils_scss/mixins";
+.image-adaptive {
+  @include mixins.adaptiveValue(width, 700, 290);
+}
+
+.text-adaptive-demo {
+  @include mixins.adaptiveValue(font-size, 30, 20);
+}
+
+.button-demo {
+  &:hover {
+    background-color: #f00;
+    &::before {
+      background: #000000b5;
+    }
+    &::after {
+      opacity: 1;
+      top: 50%;
+    }
+  }
+
+  &::before {
+    transition: all, 0.3s;
+    content: "";
+    height: 100%;
+    width: 100%;
+    left:0;
+    top: 0;
+    z-index: 1;
+    pointer-events: none;
+    position: absolute;
+  }
+  &::after {
+    content: "View Demo";
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include mixins.adaptiveValue(font-size, 28, 18);
+    text-transform: uppercase;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 0.08em;
+    transition: all, 0.3s;
+    top: 60%;
+    opacity: 0;
+  }
+}

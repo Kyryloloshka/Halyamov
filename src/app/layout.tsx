@@ -20,13 +20,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className + " relative"}>
+      <body className={inter.className + " relative common-container"}>
         <StoreProvider>
           <BackgroundWrapper>
-            <div className="common-container wrapper relative">
+            <div className="relative z-[0]">
               <NavBar />
               <TransitionProvider>
-                <main className="w-full relative z-[-3]">{children}</main>
+                <main className=" relative z-[-3]">{children}</main>
               </TransitionProvider>
             </div>
           </BackgroundWrapper>

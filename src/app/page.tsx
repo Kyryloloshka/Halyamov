@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export default function Home() {
   return (
     <motion.div
-      className="home-page__container h-full"
+      className="home-page__container h-[calc(100vh-70px)]"
       initial={{ x: "-20vw" }}
       animate={{ x: "0%" }}
       transition={{ duration: 1, delay: 0.1, ease: "easeInOut" }}

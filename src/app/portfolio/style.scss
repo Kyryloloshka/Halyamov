@@ -1,0 +1,4 @@
+@use "../../lib/utils_scss/mixins";
+.text-adaptive-title {
+  @include mixins.adaptiveValue(font-size, 30, 20);
+}
