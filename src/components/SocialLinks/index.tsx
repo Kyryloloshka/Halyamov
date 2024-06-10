@@ -5,6 +5,7 @@ import Link from "next/link";
 import { animatePageOut } from "@/lib/animations";
 import { usePathname, useRouter } from "next/navigation";
 import { linksActions, useActionCreators } from "@/state";
+
 const SocialLinks = () => {
   const router = useRouter();
   const pathname = usePathname();
@@ -15,6 +16,7 @@ const SocialLinks = () => {
     actions.setCurrentHref("/contact");
     animatePageOut("/contact", router);
   };
+  
   return (
     <div className="fixed z-[-1] right-8 bottom-0 translate-y-[-25%] flex gap-2">
       <Link href="https://www.instagram.com/halyamovv/" className="button">
@@ -53,7 +55,7 @@ const SocialLinks = () => {
           ></path>
         </svg>
       </Link>
-      <Link href="https://github.com/Kyryloloshka" className="button">
+      <Link href="t.me/kyryloloshka" className="button">
         <svg
           viewBox="0 0 48 48"
           fill="none"
