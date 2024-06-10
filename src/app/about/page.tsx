@@ -2,11 +2,12 @@
 import { motion, useInView } from "framer-motion";
 import "./style.scss";
 import { useRef } from "react";
+import Image from "next/image";
 
 const About = () => {
   const skillRef = useRef<HTMLDivElement>(null);
   const isSkillRefInView = useInView(skillRef, { margin: "-50px", once: true });
-
+  
   const expirienceRef = useRef<HTMLDivElement>(null);
   const isExpirienceRefInView = useInView(expirienceRef, {
     margin: "-50px",
@@ -36,7 +37,7 @@ const About = () => {
               nisi delectus quasi, temporibus ab corrupti?
             </span>
             <div className="self-end">
-              <img
+              <Image
                 width={100}
                 className="stroke-5"
                 src="assets/svgs/sign.svg"
@@ -176,8 +177,8 @@ const About = () => {
                     School
                   </h4>
                   <p className="p-3 text-small italic">
-                    The birth of my passion for programming. I'm trying myself
-                    in different areas of IT, and I'm trying to implement my
+                    The birth of my passion for programming. I&apos;m trying myself
+                    in different areas of IT, and I&apos;m trying to implement my
                     initial projects. I participate in various district and
                     regional olympiads, and I am gaining confidence before the
                     big challenge - to become a professional
