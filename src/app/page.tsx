@@ -1,11 +1,17 @@
 "use client";
 import { animatePageOut } from "@/lib/animations";
+import { linksActions, useActionCreators } from "@/state";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
   const router = useRouter();
+  const actions = useActionCreators(linksActions);
+
+
   const handleClickButtonPortfolio = () => {
+    actions.setCurrentPageLabel("Projects");
+    actions.setCurrentHref("/portfolio");
     animatePageOut("/portfolio", router);
   };
 
@@ -18,7 +24,9 @@ export default function Home() {
     >
       <div className="h-full flex justify-center items-center gap-8">
         <div className="flex flex-col gap-9 items-center text-center max-w-[800px] justify-center flex-auto tracking-wider">
-          <div className="text-6xl font-semibold">Hi, I&apos;m Halyamov Kyrylo.</div>
+          <div className="text-6xl font-semibold">
+            Hi, I&apos;m Halyamov Kyrylo.
+          </div>
           <div className="text-lg leading-6">
             A dynamic and results-driven Web Developer with a proven track
             record in crafting and overseeing high-performance Websites and Web
