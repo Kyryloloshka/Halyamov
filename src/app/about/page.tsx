@@ -64,7 +64,7 @@ const About = () => {
               experience in crafting high-quality web applications. I am
               dedicated to continuously enhancing user experiences through
               aesthetic and functional design, always tailored to meet the
-              clients' needs. I possess a profound understanding of UI/UX
+              clients&apos; needs. I possess a profound understanding of UI/UX
               principles and the agility to adapt to rapidly evolving project
               requirements.
             </p>
