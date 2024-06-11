@@ -67,29 +67,11 @@ const Contact = () => {
       animate={{ x: "0%" }}
       transition={{ duration: 1, delay: 0.1, ease: "easeInOut" }}
     >
-      <div className="h-full flex flex-auto flex-col lg:flex-row items-center gap-6 lg:gap-2">
-        <div className="h-1/2 lg:h-full lg:w-1/2 flex items-center justify-center text-6xl">
-          <div>
-            {text.split("").map((letter, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{
-                  duration: 3,
-                  delay: index * 0.1,
-                }}
-              >
-                {letter}
-              </motion.span>
-            ))}
-            😊
-          </div>
-        </div>
+      <div className="h-full flex flex-auto flex-col justify-center lg:flex-row items-center gap-6 lg:gap-2">
         <form
           onSubmit={sendEmail}
           ref={form}
-          className="h-1/2 flex-auto lg:h-full lg:w-1/2 bg-red-50/90 rounded-xl text-xl flex flex-col gap-4 justify-center px-8 py-6"
+          className="h-1/2 flex-auto lg:h-full max-w-[500px] lg:w-1/2 bg-red-50/90 rounded-xl text-xl flex flex-col gap-4 justify-center px-8 py-6"
         >
           <span>Dear Halyamov Kyrylo,</span>
           <textarea

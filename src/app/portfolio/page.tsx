@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 import "./style.scss";
+import Link from "@/components/Link";
 
 const items = [
   {
@@ -47,7 +48,7 @@ const Portfolio = () => {
   const ref = useRef<any>();
 
   const { scrollYProgress } = useScroll({ target: ref });
-  const xScroll = useTransform(scrollYProgress, [0, 1], ["30%", "-75%"]);
+  const xScroll = useTransform(scrollYProgress, [0, 1], ["30%", "-100%"]);
 
   return (
     <motion.div
@@ -78,6 +79,14 @@ const Portfolio = () => {
               </div>
             ))}
           </motion.div>
+        </div>
+      </div>
+      <div className="w-screen h-screen flex flex-col gap-16 items-center justify-center text-center">
+        <h1 className="text-8xl text-dark-5">If interested</h1>
+        <div className="relative">
+          <Link href="/contact" className="" label="contact">
+            <button className="hire-me-button">hire me</button>
+          </Link>
         </div>
       </div>
     </motion.div>
