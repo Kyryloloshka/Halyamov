@@ -16,7 +16,7 @@ const SocialLinks = () => {
     actions.setCurrentHref("/contact");
     animatePageOut("/contact", router);
   };
-  
+
   return (
     <div className="fixed z-[-1] right-8 bottom-0 translate-y-[-25%] flex gap-2">
       <Link href="https://www.instagram.com/halyamovv/" className="button">

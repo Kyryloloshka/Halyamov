@@ -71,19 +71,19 @@ const Contact = () => {
         <form
           onSubmit={sendEmail}
           ref={form}
-          className="h-1/2 flex-auto lg:h-full max-w-[500px] lg:w-1/2 bg-red-50/90 rounded-xl text-xl flex flex-col gap-4 justify-center px-8 py-6"
+          className="h-1/2 flex-auto lg:h-full max-w-[500px] lg:w-1/2 b rounded-xl text-xl flex flex-col gap-4 justify-center px-8 py-6"
         >
           <span>Dear Halyamov Kyrylo,</span>
           <textarea
             rows={6}
-            className="bg-gray-500/10 px-4 py-2 custom-scrollbar rounded-lg border-b-2 border-b-black outline-none resize-none"
+            className="bg-white/50 px-4 py-2 custom-scrollbar rounded-lg border-b-2 border-b-black outline-none resize-none"
             name="user_message"
           />
           <span>My mail address is:</span>
           <input
             name="user_email"
             type="text"
-            className=" bg-gray-500/10 rounded-lg px-4 py-2 border-b-2 border-b-black outline-none"
+            className=" bg-white/50 rounded-lg px-4 py-2 border-b-2 border-b-black outline-none"
           />
           <span>Regards</span>
           <button

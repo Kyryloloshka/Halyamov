@@ -112,13 +112,13 @@ const About = () => {
             >
               Experience
             </motion.h1>
-            <ul className="max-w-[700px]">
-              <li className="flex justify-between h-48">
+            <ul className="max-w-[500px] sm:max-w-[700px]">
+              <li className="flex justify-between md:h-48">
                 <motion.div
                   initial={{ x: "-200px", opacity: 0 }}
                   animate={isExpirienceRefInView ? { x: 0, opacity: 1 } : {}}
                   transition={{ delay: 0.1, duration: 0.4, ease: "backOut" }}
-                  className="w-[calc((100%-5rem)/2)] flex flex-col gap-1 items-start"
+                  className="w-[calc(100%-5rem)] pb-12 sm:pb-0 sm:w-[calc((100%-5rem)/2)] flex flex-col gap-1 items-start"
                 >
                   <h4 className="bg-white font-semibold rounded-b-lg rounded-s-lg p-3 hover:left-3 relative left-0 transition-[left]">
                     My Journey of Growth
@@ -128,9 +128,7 @@ const About = () => {
                     embarked on a journey filled with challenges and triumphs.
                     With unwavering determination, I delved into the world of
                     web development, eager to hone my skills and make a
-                    meaningful impact. Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Sint aperiam odit, officiis molestiae
-                    assumenda voluptatibus reprehenderit!
+                    meaningful impact.
                   </p>
                   <div className="p-3 text-red-400 text-sm font-semibold hover:left-1 relative left-0 transition-[left]">
                     2024 - Present
@@ -144,11 +142,11 @@ const About = () => {
                     <div className="absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white -left-2 top-2"></div>
                   </div>
                 </div>
-                <div className="w-[calc((100%-5rem)/2)] flex flex-col gap-1 items-start"></div>
+                <div className="sm:w-[calc((100%-5rem)/2)] flex flex-col gap-1 items-start"></div>
               </li>
-              <li className="flex justify-between h-48">
-                <div className="w-[calc((100%-5rem)/2)] flex flex-col gap-1 items-start"></div>
-                <div className="w-5 flex justify-center">
+              <li className="flex justify-between sm:h-48">
+                <div className="hidden sm:w-[calc((100%-5rem)/2)] sm:flex flex-col gap-1 items-start"></div>
+                <div className="hidden w-5 sm:flex justify-center">
                   <div className="w-1 h-full bg-gray-500 relative">
                     <div className="absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white -left-2 top-2"></div>
                   </div>
@@ -157,7 +155,7 @@ const About = () => {
                   initial={{ x: "-200px", opacity: 0 }}
                   animate={isExpirienceRefInView ? { x: 0, opacity: 1 } : {}}
                   transition={{ delay: 0.2, duration: 0.4, ease: "backOut" }}
-                  className="w-[calc((100%-5rem)/2)]  flex flex-col gap-1 items-start"
+                  className="w-[calc(100%-5rem)] pb-12 sm:pb-0 sm:w-[calc((100%-5rem)/2)] flex flex-col gap-1 items-start"
                 >
                   <h4 className="bg-white font-semibold rounded-b-lg rounded-s-lg p-3 hover:left-3 relative left-0 transition-[left]">
                     University
@@ -176,13 +174,19 @@ const About = () => {
                     Company
                   </div> */}
                 </motion.div>
+                <div className="sm:hidden w-5 flex justify-center">
+                  <div className="w-1 h-full bg-gray-500 relative">
+                    <div className="absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white -left-2 top-2"></div>
+                  </div>
+                </div>
+                <div className="sm:hidden sm:w-[calc((100%-5rem)/2)] flex flex-col gap-1 items-start"></div>
               </li>
               <li className="flex justify-between">
                 <motion.div
                   initial={{ x: "-200px", opacity: 0 }}
                   animate={isExpirienceRefInView ? { x: 0, opacity: 1 } : {}}
                   transition={{ delay: 0.3, duration: 0.4, ease: "backOut" }}
-                  className="w-[calc((100%-5rem)/2)] flex flex-col gap-1 items-start"
+                  className="w-[calc(100%-5rem)]   sm:w-[calc((100%-5rem)/2)] flex flex-col gap-1 items-start"
                 >
                   <h4 className="bg-white font-semibold rounded-b-lg rounded-s-lg p-3 hover:left-3 relative left-0 transition-[left]">
                     School
@@ -206,7 +210,7 @@ const About = () => {
                     <div className="absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white -left-2 top-2"></div>
                   </div>
                 </div>
-                <div className="w-[calc((100%-5rem)/2)] flex flex-col gap-1 items-start"></div>
+                <div className="sm:w-[calc((100%-5rem)/2)] flex flex-col gap-1 items-start"></div>
               </li>
             </ul>
           </div>

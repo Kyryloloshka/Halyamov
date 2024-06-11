@@ -3,7 +3,7 @@ import { animatePageOut } from "@/lib/animations";
 import { linksActions, useActionCreators } from "@/state";
 import { usePathname, useRouter } from "next/navigation";
 
-const Link = ({ href, label, pageName, children, ...rest }: any) => {
+const Link = ({ href, pageName, children, ...rest }: any) => {
   const router = useRouter();
   const actions = useActionCreators(linksActions);
   const pathname = usePathname();

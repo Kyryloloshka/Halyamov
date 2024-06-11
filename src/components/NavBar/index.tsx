@@ -30,10 +30,11 @@ const NavBar = () => {
       <div className="flex flex-auto justify-between nav-bar__container items-center py-5 navbar-gap">
         <Link
           href="/"
-          label={"Halyamov"}
           pageName={"home"}
           className="text-2xl font-bold text-dark-2"
-        />
+        >
+          Halyamov
+        </Link>
         <div className="flex navbar-gap flex-wrap justify-center gap-y-1">
           {navbarLinks.map((link) => {
             return (
