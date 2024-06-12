@@ -3,11 +3,13 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 interface LinksState {
   currentRoute: string;
   currentHref: string;
+  isBurgerMenuOpen: boolean;
 }
 
 const initialState: LinksState = {
   currentRoute: "",
   currentHref: "",
+  isBurgerMenuOpen: false,
 };
 
 const slice = createSlice({
@@ -20,6 +22,12 @@ const slice = createSlice({
     setCurrentHref(state, action: PayloadAction<string>) {
       state.currentHref = action.payload;
     },
+    setIsBurgerMenuOpen(state, action: PayloadAction<boolean>) {
+      state.isBurgerMenuOpen = action.payload;
+    },
+    toggleIsBurgerMenuOpen(state) {
+      state.isBurgerMenuOpen = !state.isBurgerMenuOpen;
+    }
   }
 })
 

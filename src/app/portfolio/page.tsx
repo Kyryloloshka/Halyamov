@@ -62,7 +62,7 @@ const Portfolio = () => {
       animate={{ x: "0%" }}
       transition={{ duration: 1, delay: 0.1, ease: "easeInOut" }}
     >
-      <div className="h-[600vh] text-dark-4" ref={ref}>
+      <div className="h-[600vh] text-dark-4 " ref={ref}>
         <motion.div
           style={{
             scale,

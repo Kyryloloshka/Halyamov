@@ -6,6 +6,7 @@ import BackgroundWrapper from "@/components/BackgroundWrapper";
 import StoreProvider from "@/components/StoreProvider";
 import TransitionProvider from "@/components/TransitionProvider";
 import SocialLinks from "@/components/SocialLinks";
+import { useStateSelector } from "@/state";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,10 +22,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className + " relative common-container"}>
+      <body
+        className={
+          inter.className + " relative common-container overflow-x-hidden"
+        }
+      >
         <StoreProvider>
           <BackgroundWrapper>
-            <div className="relative z-[0]">
+            <div className="relative z-[0] ">
               <NavBar />
               <TransitionProvider>
                 <main className=" relative z-[-3]">{children}</main>

@@ -12,3 +12,121 @@
   -webkit-backdrop-filter: blur(8px); /* Підтримка для Safari */
   box-shadow: 0 2px 9px rgba(116, 6, 103, 0.1);
 }
+
+#checkbox {
+  display: none;
+}
+
+.toggle {
+  position: relative;
+  width: 30px;
+  cursor: pointer;
+  margin: auto;
+  display: block;
+  height: calc(4px * 3 + 7px * 2);
+}
+
+.bars {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: calc(3px / 2);
+  background: #7b52b9;
+  color: inherit;
+  opacity: 1;
+  transition: none 0.35s cubic-bezier(.5,-0.35,.35,1.5) 0s;
+}
+
+#bar1 {
+  bottom: calc(50% + 7px + 3px/ 2);
+  transition-property: bottom,transform;
+  transition-delay: calc(0s + 0.35s),0s;
+}
+
+#bar2 {
+  top: calc(50% - 3px/ 2);
+  transition-property: opacity;
+  transition-delay: calc(0s + 0.35s);
+}
+
+#bar3 {
+  top: calc(50% + 7px + 3px/ 2);
+  transition-property: top,transform;
+  transition-delay: calc(0s + 0.35s),0s;
+}
+#checkbox:checked + .toggle .bars {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#checkbox:checked + .toggle #bar1 {
+  bottom: calc(50% - 3px/ 2);
+  transform: rotate(135deg);
+  transition-delay: 0s,calc(0s + 0.35s);
+}
+
+#checkbox:checked + .toggle #bar2 {
+  opacity: 0;
+  transition-duration: 0s;
+  transition-delay: calc(0s + 0.35s);
+}
+
+#checkbox:checked + .toggle #bar3 {
+  top: calc(50% - 3px/ 2);
+  transform: rotate(225deg);
+  transition-delay: 0s,calc(0s + 0.35s);
+}
+
+.header{
+  padding: 30px;
+  position: fixed;
+  right: 0;
+  z-index: 1;
+
+  .button{
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #455CE9;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .burger{
+      width: 100%;
+      &::after, &::before{
+          content: "";
+          display: block;
+          height: 1px;
+          width: 40%;
+          margin: auto;
+          background-color: white;
+          position: relative;
+          transition: transform 0.3s;
+      }
+
+      &::after{
+          top: -5px;
+      }
+
+      &::before{
+          top: 5px;
+      }
+  }
+
+  .burgerActive{
+
+      &::after{
+          transform: rotate(45deg);
+          top: -1px;
+      }
+
+      &::before{
+          transform: rotate(-45deg);
+          top: 0px;
+      }
+      
+  }
+}

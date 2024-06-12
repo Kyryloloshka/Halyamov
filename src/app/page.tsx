@@ -8,7 +8,6 @@ export default function Home() {
   const router = useRouter();
   const actions = useActionCreators(linksActions);
 
-
   const handleClickButtonPortfolio = () => {
     actions.setCurrentPageLabel("Projects");
     actions.setCurrentHref("/portfolio");
