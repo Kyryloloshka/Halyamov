@@ -54,7 +54,7 @@ const About = () => {
     >
       <div className="pb-36">
         <div className="flex flex-col gap-24 text-dark-2">
-          <div className="flex flex-col gap-12 justify-center min-h-[calc(100vh-80px)] max-w-[600px]">
+          <div className="flex flex-col gap-12 justify-center min-h-screen max-w-[600px]">
             <h1 className="uppercase text-2xl font-semibold hover:left-3 relative left-0 transition-[left]">
               Biography
             </h1>

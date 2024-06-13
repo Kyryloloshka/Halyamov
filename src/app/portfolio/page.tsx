@@ -64,7 +64,7 @@ const Portfolio = () => {
     >
       <div className="h-[600vh] text-dark-4 " ref={ref}>
         <motion.div
-          className={`h-[calc(100vh-60px)] flex items-center justify-center text-8xl text-center`}
+          className={`min-h-screen flex items-center justify-center text-8xl text-center`}
         >
           My Works
         </motion.div>

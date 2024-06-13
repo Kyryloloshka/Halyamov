@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <motion.div
-      className="home-page__container h-[calc(100vh-70px)]"
+      className="home-page__container min-h-screen flex justify-center items-center"
       initial={{ x: "-20vw" }}
       animate={{ x: "0%" }}
       transition={{ duration: 1, delay: 0.1, ease: "easeInOut" }}
