@@ -31,17 +31,24 @@ const navbarLinks = [
 const NavBar = () => {
   const isActive = useStateSelector((state) => state.links.isBurgerMenuOpen);
   const actions = useActionCreators(linksActions);
+
   useEffect(() => {
     if (isActive) {
+      const scrollWidth =
+        window.innerWidth - document.documentElement.clientWidth;
       document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = `${scrollWidth}px`;
     } else {
       document.body.style.overflow = "auto";
+      document.body.style.paddingRight = "0px";
     }
 
     return () => {
       document.body.style.overflow = "auto";
+      document.body.style.paddingRight = "0px";
     };
   }, [isActive]);
+
   useEffect(() => {
     const checkbox = document.getElementById("checkbox");
     if (checkbox && checkbox instanceof HTMLInputElement) {
@@ -72,7 +79,7 @@ const NavBar = () => {
             );
           })}
         </div>
-        <div className={`md:hidden z-10`}>
+        <div className={`md:hidden z-[10]`}>
           <input
             type="checkbox"
             checked={isActive}
@@ -85,13 +92,15 @@ const NavBar = () => {
             <div className={"bars"} id="bar3"></div>
           </label>
         </div>
-        <AnimatePresence mode="wait">
-          {isActive && (
-            <>
-              <NavLinks navbarLinks={navbarLinks} />
-            </>
-          )}
-        </AnimatePresence>
+        <div className="overflow-hidden fixed top-0 max-w-screen right-0 h-full z-[9] bg-dark-1">
+          <AnimatePresence mode="wait">
+            {isActive && (
+              <>
+                <NavLinks navbarLinks={navbarLinks} />
+              </>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </nav>
   );

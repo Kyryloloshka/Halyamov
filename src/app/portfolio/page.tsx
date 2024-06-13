@@ -64,9 +64,6 @@ const Portfolio = () => {
     >
       <div className="h-[600vh] text-dark-4 " ref={ref}>
         <motion.div
-          style={{
-            scale,
-          }}
           className={`h-[calc(100vh-60px)] flex items-center justify-center text-8xl text-center`}
         >
           My Works
@@ -91,7 +88,7 @@ const Portfolio = () => {
           </motion.div>
         </div>
       </div>
-      <div className="w-screen h-[calc(50vh+60px)] flex flex-col gap-16 items-center  text-center">
+      <div className="max-w-screen h-[calc(50vh+60px)] flex flex-col gap-16 items-center  text-center">
         <h3 className="text-8xl text-dark-5">If interested</h3>
         <div className="relative">
           <Link href="/contact" className="hire-me-button" label="contact">

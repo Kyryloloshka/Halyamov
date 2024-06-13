@@ -29,10 +29,10 @@ export default function RootLayout({
       >
         <StoreProvider>
           <BackgroundWrapper>
-            <div className="relative z-[0] ">
+            <div className="relative z-[0]">
               <NavBar />
               <TransitionProvider>
-                <main className=" relative z-[-3]">{children}</main>
+                <main className="relative z-[-3]">{children}</main>
               </TransitionProvider>
               <SocialLinks />
             </div>

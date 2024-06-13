@@ -19,7 +19,11 @@ export const animatePageIn = () => {
         .to(elem, {
           xPercent: 100,
           duration: 0.8,
-        });
+          onComplete: () => {
+            document.body.style.overflow = "auto";
+            document.body.style.paddingRight = "0px"
+          }
+        })
     }
   });
 
@@ -32,6 +36,9 @@ export const animatePageIn = () => {
 };
 
 export const animatePageOut = (href: string, router: AppRouterInstance) => {
+  const scrollWidth = window.innerWidth - document.documentElement.clientWidth
+  document.body.style.overflow = "hidden";
+  document.body.style.paddingRight = `${scrollWidth}px`
   const tranElems = [
     document.getElementById("transition-element"),
     document.getElementById("transition-element-2"),

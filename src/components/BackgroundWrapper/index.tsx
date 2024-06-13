@@ -38,7 +38,7 @@ const BackgroundWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       {children}
-      <div className="gradient-bg">
+      <div className="gradient-bg overflow-x-hidden">
         <svg xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id="goo">

@@ -36,8 +36,7 @@ const TransitionProvider = ({ children }: { children: React.ReactNode }) => {
     };
 
     handleRouteChange();
-
-    return () => {};
+    
   }, [pathname]);
 
   return (
