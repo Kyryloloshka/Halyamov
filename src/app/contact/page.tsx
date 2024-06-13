@@ -67,11 +67,11 @@ const Contact = () => {
       animate={{ x: "0%" }}
       transition={{ duration: 1, delay: 0.1, ease: "easeInOut" }}
     >
-      <div className="h-full flex flex-auto flex-col justify-center lg:flex-row items-center gap-6 lg:gap-2">
+      <div className="h-full flex flex-auto flex-col justify-center  items-center gap-6">
         <form
           onSubmit={sendEmail}
           ref={form}
-          className="h-1/2 flex-auto lg:h-full max-w-[500px] lg:w-1/2 b rounded-xl text-xl flex flex-col gap-4 justify-center px-8 py-6"
+          className="h-1/2 flex-auto w-full lg:h-full max-w-[500px] b rounded-xl text-xl flex flex-col gap-4 justify-center"
         >
           <span>Dear Halyamov Kyrylo,</span>
           <textarea

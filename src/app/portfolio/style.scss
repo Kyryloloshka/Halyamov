@@ -3,6 +3,14 @@
   @include mixins.adaptiveValue(font-size, 30, 20);
 }
 
+.my-works-title {
+  @include mixins.adaptiveValue(font-size, 60, 34);
+}
+
+.if-interested-title {
+  @include mixins.adaptiveValue(font-size, 60, 34);
+}
+
 $primary-500: rgb(207, 98, 209);
 $secondary-500: rgb(28, 203, 252);
 

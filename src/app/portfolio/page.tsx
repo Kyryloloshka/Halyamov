@@ -53,7 +53,6 @@ const Portfolio = () => {
   const ref = useRef<any>();
   const { scrollYProgress } = useScroll({ target: ref });
   const xScroll = useTransform(scrollYProgress, [0, 1], ["30%", "-100%"]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 3]);
 
   return (
     <motion.div
@@ -64,7 +63,7 @@ const Portfolio = () => {
     >
       <div className="h-[600vh] text-dark-4 " ref={ref}>
         <motion.div
-          className={`min-h-screen flex items-center justify-center text-8xl text-center`}
+          className={`min-h-screen flex items-center justify-center text-8xl text-center my-works-title`}
         >
           My Works
         </motion.div>
@@ -89,7 +88,7 @@ const Portfolio = () => {
         </div>
       </div>
       <div className="max-w-screen h-[calc(50vh+60px)] flex flex-col gap-16 items-center  text-center">
-        <h3 className="text-8xl text-dark-5">If interested</h3>
+        <h3 className=" text-dark-5 if-interested-title">If interested</h3>
         <div className="relative">
           <Link href="/contact" className="hire-me-button" label="contact">
             hire me

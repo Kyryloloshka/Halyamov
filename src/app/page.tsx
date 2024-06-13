@@ -23,7 +23,7 @@ export default function Home() {
     >
       <div className="h-full flex justify-center items-center gap-8">
         <div className="flex flex-col gap-9 items-center text-center max-w-[800px] justify-center flex-auto tracking-wider">
-          <div className="text-6xl font-semibold">
+          <div className="font-semibold text-dark-4 home-title">
             Hi, I&apos;m Halyamov Kyrylo.
           </div>
           <div className="text-lg leading-6">
