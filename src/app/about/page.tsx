@@ -1,9 +1,10 @@
 "use client";
 import { motion, useInView } from "framer-motion";
 import "./style.scss";
-import { useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import SkillBlock from "@/components/SkillBlock";
+import { scrollToTop } from "@/lib/helpers";
 
 const skills = [
   {
@@ -45,6 +46,10 @@ const About = () => {
     margin: "-180px",
     once: true,
   });
+
+  useLayoutEffect(() => {
+    scrollToTop();
+  }, []);
   return (
     <motion.div
       className="about__container h-full pt-6"

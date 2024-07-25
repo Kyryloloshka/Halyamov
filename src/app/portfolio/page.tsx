@@ -1,15 +1,10 @@
 "use client";
-import DemoButton from "@/components/DemoButton";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useViewportScroll,
-} from "framer-motion";
-import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import "./style.scss";
 import Link from "@/components/Link";
+import PortfolioItem from "@/components/PortfolioItem";
+import React, { useLayoutEffect } from "react";
+import { scrollToTop } from "@/lib/helpers";
 
 const items = [
   {
@@ -50,51 +45,39 @@ const items = [
 ];
 
 const Portfolio = () => {
-  const ref = useRef<any>();
-  const { scrollYProgress } = useScroll({ target: ref });
-  const xScroll = useTransform(scrollYProgress, [0, 1], ["30%", "-100%"]);
+  useLayoutEffect(() => {
+    scrollToTop();
+  }, []);
 
   return (
     <motion.div
-      className="h-full relative"
+      className="h-full relative protfolio__container"
       initial={{ x: "-20vw" }}
       animate={{ x: "0%" }}
       transition={{ duration: 1, delay: 0.1, ease: "easeInOut" }}
     >
-      <div className="h-[600vh] text-dark-4 " ref={ref}>
+      <section className="text-dark-4 ">
         <motion.div
           className={`min-h-screen flex items-center justify-center text-8xl text-center my-works-title`}
         >
           My Works
         </motion.div>
-        <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-          <motion.div style={{ x: xScroll }} className="flex gap-[100px]">
-            {items.map((item) => (
-              <div className={`flex items-center`} key={item.id}>
-                <div className="flex flex-col gap-8  self-start">
-                  <h1 className="text-adaptive-title font-bold text-dark-5">
-                    {item.title}
-                  </h1>
-                  <DemoButton href={item.link}>
-                    <Image src={item.img} alt="" fill />
-                  </DemoButton>
-                  <p className="w-80 md:w-96 lg:w-[500px] lg:text-lg xl:w-[600px]">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </motion.div>
+        <div className="flex flex-col gap-[100px]">
+          {items.map((item, index) => (
+            <React.Fragment key={index}>
+              <PortfolioItem item={item} index={index} />
+            </React.Fragment>
+          ))}
         </div>
-      </div>
-      <div className="max-w-screen h-[calc(50vh+60px)] flex flex-col gap-16 items-center  text-center">
+      </section>
+      <section className="max-w-screen min-h-screen flex justify-center flex-col gap-16 items-center text-center">
         <h3 className=" text-dark-5 if-interested-title">If interested</h3>
         <div className="relative">
           <Link href="/contact" className="hire-me-button" label="contact">
             hire me
           </Link>
         </div>
-      </div>
+      </section>
     </motion.div>
   );
 };

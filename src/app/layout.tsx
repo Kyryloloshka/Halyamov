@@ -6,7 +6,6 @@ import BackgroundWrapper from "@/components/BackgroundWrapper";
 import StoreProvider from "@/components/StoreProvider";
 import TransitionProvider from "@/components/TransitionProvider";
 import SocialLinks from "@/components/SocialLinks";
-import { useStateSelector } from "@/state";
 
 const inter = Inter({ subsets: ["latin"] });
 

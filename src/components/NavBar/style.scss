@@ -4,12 +4,13 @@
 }
 
 .bg-filter {
-  position: fixed; /* Фіксуємо елемент на екрані */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  backdrop-filter: blur(8px); /* Застосовуємо розмиття */
-  -webkit-backdrop-filter: blur(8px); /* Підтримка для Safari */
+  background: rgba(221, 188, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 2px 9px rgba(116, 6, 103, 0.1);
 }
 
@@ -35,34 +36,34 @@
   background: #7b52b9;
   color: inherit;
   opacity: 1;
-  transition: none 0.35s cubic-bezier(.5,-0.35,.35,1.5) 0s;
+  transition: none 0.35s cubic-bezier(0.5, -0.35, 0.35, 1.5) 0s;
 }
 
 #bar1 {
-  bottom: calc(50% + 7px + 3px/ 2);
-  transition-property: bottom,transform;
-  transition-delay: calc(0s + 0.35s),0s;
+  bottom: calc(50% + 7px + 3px / 2);
+  transition-property: bottom, transform;
+  transition-delay: calc(0s + 0.35s), 0s;
 }
 
 #bar2 {
-  top: calc(50% - 3px/ 2);
+  top: calc(50% - 3px / 2);
   transition-property: opacity;
   transition-delay: calc(0s + 0.35s);
 }
 
 #bar3 {
-  top: calc(50% + 7px + 3px/ 2);
-  transition-property: top,transform;
-  transition-delay: calc(0s + 0.35s),0s;
+  top: calc(50% + 7px + 3px / 2);
+  transition-property: top, transform;
+  transition-delay: calc(0s + 0.35s), 0s;
 }
 #checkbox:checked + .toggle .bars {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
 #checkbox:checked + .toggle #bar1 {
-  bottom: calc(50% - 3px/ 2);
+  bottom: calc(50% - 3px / 2);
   transform: rotate(135deg);
-  transition-delay: 0s,calc(0s + 0.35s);
+  transition-delay: 0s, calc(0s + 0.35s);
 }
 
 #checkbox:checked + .toggle #bar2 {
@@ -72,61 +73,60 @@
 }
 
 #checkbox:checked + .toggle #bar3 {
-  top: calc(50% - 3px/ 2);
+  top: calc(50% - 3px / 2);
   transform: rotate(225deg);
-  transition-delay: 0s,calc(0s + 0.35s);
+  transition-delay: 0s, calc(0s + 0.35s);
 }
 
-.header{
+.header {
   padding: 30px;
   position: fixed;
   right: 0;
   z-index: 1;
 
-  .button{
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background-color: #455CE9;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+  .button {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #455ce9;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .burger{
-      width: 100%;
-      &::after, &::before{
-          content: "";
-          display: block;
-          height: 1px;
-          width: 40%;
-          margin: auto;
-          background-color: white;
-          position: relative;
-          transition: transform 0.3s;
-      }
+  .burger {
+    width: 100%;
+    &::after,
+    &::before {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 40%;
+      margin: auto;
+      background-color: white;
+      position: relative;
+      transition: transform 0.3s;
+    }
 
-      &::after{
-          top: -5px;
-      }
+    &::after {
+      top: -5px;
+    }
 
-      &::before{
-          top: 5px;
-      }
+    &::before {
+      top: 5px;
+    }
   }
 
-  .burgerActive{
+  .burgerActive {
+    &::after {
+      transform: rotate(45deg);
+      top: -1px;
+    }
 
-      &::after{
-          transform: rotate(45deg);
-          top: -1px;
-      }
-
-      &::before{
-          transform: rotate(-45deg);
-          top: 0px;
-      }
-      
+    &::before {
+      transform: rotate(-45deg);
+      top: 0px;
+    }
   }
 }

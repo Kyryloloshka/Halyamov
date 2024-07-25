@@ -113,12 +113,12 @@ html {
 }
 @media (max-width: 1050px) {
   [class*=__container] {
-    padding-left: calc(10px + 15 * (100vw - 320px) / 730);
+    padding-left: calc(15px + 15 * (100vw - 320px) / 730);
   }
 }
 @media (max-width: 1050px) {
   [class*=__container] {
-    padding-right: calc(10px + 15 * (100vw - 320px) / 730);
+    padding-right: calc(15px + 15 * (100vw - 320px) / 730);
   }
 }/*# sourceMappingURL=globals.css.map */
 
