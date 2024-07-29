@@ -55,7 +55,7 @@ const SocialLinks = () => {
           ></path>
         </svg>
       </Link>
-      <Link href="t.me/kyryloloshka" className="button">
+      <Link href="https://t.me/kyryloloshka" className="button">
         <svg
           viewBox="0 0 48 48"
           fill="none"
