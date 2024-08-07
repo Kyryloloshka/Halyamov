@@ -22,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
+        suppressHydrationWarning
         className={
           inter.className + " relative common-container overflow-x-hidden"
         }
