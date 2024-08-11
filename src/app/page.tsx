@@ -1,4 +1,5 @@
 "use client";
+import { TextEffect } from "@/components/ui/TextEffect";
 import { animatePageOut } from "@/lib/animations";
 import { linksActions, useActionCreators } from "@/state";
 import { motion } from "framer-motion";
@@ -26,13 +27,18 @@ export default function Home() {
           <div className="font-semibold text-dark-4 home-title">
             Hi, I&apos;m Halyamov Kyrylo.
           </div>
-          <div className="text-lg leading-6">
+          <TextEffect
+            per="char"
+            preset="fade"
+            as="p"
+            className="text-lg leading-6"
+          >
             A dynamic and results-driven Web Developer with a proven track
             record in crafting and overseeing high-performance Websites and Web
             Applications. I am dedicated to transforming visions into impactful,
             user-centric online experiences that exceed expectations and propel
             businesses to new heights.
-          </div>
+          </TextEffect>
           <button
             onClick={handleClickButtonPortfolio}
             className="text-xl font-medium text-light-2 bg-primary-500 rounded-xl px-12 py-4 hover:translate-y-[-4px] transition hover:bg-primary-600 tracking-widest uppercase"
