@@ -1,69 +1,131 @@
-@use 'sass:math';
+@use "sass:math";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /*Онулення*/
-*{padding: 0;margin: 0;border: 0;}
-*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
-:focus,:active{outline: none;}
-a:focus,a:active{outline: none;}
-nav,footer,header,aside{display: block;}
-html,body{height: 100%;width: 100%;font-size: 100%;line-height: 1;font-size: 14px;-ms-text-size-adjust: 100%;-moz-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;}
-input,button,textarea{font-family:inherit;}
-input::-ms-clear{display: none;}
-button{cursor: pointer;}
-button::-moz-focus-inner {padding:0;border:0;}
-a, a:visited{text-decoration: none;}
-a:hover{text-decoration: none;}
-ul li{list-style: none;}
-img{vertical-align: top;}
-h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
 /*--------------------*/
 
-
-
 // Адаптивне значення
-@mixin adaptiveValue($property, $startSize, $minSize, $type:1) {
-	$addSize: $startSize - $minSize;
+@mixin adaptiveValue($property, $startSize, $minSize, $type: 1) {
+  $addSize: $startSize - $minSize;
 
-	@if $type ==1 {
-		#{$property}: $startSize + px;
+  @if $type ==1 {
+    #{$property}: $startSize + px;
 
-		@media (max-width: #{$containerWidth + px}) {
-			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$containerWidth - 320}));
-		}
-	}
+    @media (max-width: #{$containerWidth + px}) {
+      #{$property}: calc(
+        #{$minSize + px} + #{$addSize} *
+          ((100vw - 320px) / #{$containerWidth - 320})
+      );
+    }
+  } @else if $type ==2 {
+    #{$property}: $startSize + px;
 
-	@else if $type ==2 {
-		#{$property}: $startSize + px;
-
-		@media (min-width: #{$containerWidth + px}) {
-			#{$property}: calc(#{$minSize + px}+ #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
-		}
-	}
-
-	@else {
-		#{$property}: calc(#{$minSize + px}+ #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
-	}
+    @media (min-width: #{$containerWidth + px}) {
+      #{$property}: calc(
+        #{$minSize + px}+ #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320})
+      );
+    }
+  } @else {
+    #{$property}: calc(
+      #{$minSize + px}+ #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320})
+    );
+  }
 }
 
 // To %
 @function prc($pxOne, $pxTwo) {
-	$result: math.div($pxOne, $pxTwo) * 100%;
-	@return $result;
+  $result: math.div($pxOne, $pxTwo) * 100%;
+  @return $result;
 }
 
 @function rem($px) {
-	$result: math.div($px, 14)+rem;
-	@return $result;
+  $result: math.div($px, 14) + rem;
+  @return $result;
 }
 
 @function em($px, $fn: 14) {
-	$result: math.div($px, $fn)+em;
-	@return $result;
+  $result: math.div($px, $fn) + em;
+  @return $result;
 }
 
+$color-bg1: rgb(208, 150, 235);
+$color-bg2: rgb(208, 217, 255);
 $primary-500: rgb(200, 111, 201);
 $primary-600: rgb(171, 96, 171);
 $secondary-500: rgb(69, 195, 230);
@@ -99,109 +161,112 @@ $responsiveType: 1;
 // Ширина спрацьовування першого брейк-поінта
 $containerWidth: $maxWidthContainer + $containerPadding;
 
-
-
 // Брейк-поінти
-$pc: em($containerWidth);// ПК, ноутбуки, декотрі планшети в горизонтальному положенні
-$tablet: em(991.98);// Планшети, декотрі телефони в горизонтальному положенні
-$mobile: em(767.98);// Телефони L
+$pc: em(
+  $containerWidth
+); // ПК, ноутбуки, декотрі планшети в горизонтальному положенні
+$tablet: em(991.98); // Планшети, декотрі телефони в горизонтальному положенні
+$mobile: em(767.98); // Телефони L
 $mobileSmall: em(479.98); // Телефони S
 
 body {
-	.lock & {
-		overflow: hidden;
-		touch-action: none;
-		overscroll-behavior: none;
-	}
+  .lock & {
+    overflow: hidden;
+    touch-action: none;
+    overscroll-behavior: none;
+  }
 }
 
-html, a {
-	color: $dark-1;
+html,
+a {
+  color: $dark-1;
 }
 
-body, 
+body,
 html {
-
-	width: 100%;
-	font-size: $fontSize;
+  width: 100%;
+  font-size: $fontSize;
+  background: linear-gradient(40deg, $color-bg1, $color-bg2);
+  z-index: -11;
 }
 
 .wrapper {
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-	// Прикріплюємо footer до низу
-	main {
-		flex: 1 1 auto;
-	}
-	// фікс слайдерів
-	> * {
-		min-width: 0;
-	}
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  // Прикріплюємо footer до низу
+  main {
+    flex: 1 1 auto;
+  }
+  // фікс слайдерів
+  > * {
+    min-width: 0;
+  }
 }
 
 @if ($responsiveType==1) {
-	// Чуйна
-	[class*="__container"] {
-		@if ($maxWidthContainer>0) {
-			max-width: math.div(calc($maxWidthContainer + $containerPadding), 14)+rem;
-			box-sizing: border-box;
-			margin: 0 auto;
-		}
-		@if ($containerPadding>0) {
-			@include adaptiveValue(padding-left, $oneSidePadding, 10);
-			@include adaptiveValue(padding-right, $oneSidePadding, 10);
-		}
-	}
+  // Чуйна
+  [class*="__container"] {
+    @if ($maxWidthContainer>0) {
+      max-width: math.div(calc($maxWidthContainer + $containerPadding), 14) +
+        rem;
+      box-sizing: border-box;
+      margin: 0 auto;
+    }
+    @if ($containerPadding>0) {
+      @include adaptiveValue(padding-left, $oneSidePadding, 10);
+      @include adaptiveValue(padding-right, $oneSidePadding, 10);
+    }
+  }
 } @else {
-	// По брейк-поінтам
-	[class*="__container"] {
-		margin: 0 auto;
-		@if ($maxWidthContainer>0) {
-			max-width: math.div($maxWidthContainer, 14)+rem;
-			box-sizing: content-box;
-		} @else {
-			@if ($containerPadding>0) {
-				padding: 0 rem(math.div($containerPadding, 2));
-			}
-		}
-		@media (max-width: $pc) {
-			max-width: rem(970);
-		}
-		@media (max-width: $tablet) {
-			max-width: rem(750);
-		}
-		@media (max-width: $mobile) {
-			max-width: none;
-			@if ($containerPadding>0 and $maxWidthContainer>0) {
-				padding: 0 rem(math.div($containerPadding, 2));
-			}
-		}
-	}
+  // По брейк-поінтам
+  [class*="__container"] {
+    margin: 0 auto;
+    @if ($maxWidthContainer>0) {
+      max-width: math.div($maxWidthContainer, 14) + rem;
+      box-sizing: content-box;
+    } @else {
+      @if ($containerPadding>0) {
+        padding: 0 rem(math.div($containerPadding, 2));
+      }
+    }
+    @media (max-width: $pc) {
+      max-width: rem(970);
+    }
+    @media (max-width: $tablet) {
+      max-width: rem(750);
+    }
+    @media (max-width: $mobile) {
+      max-width: none;
+      @if ($containerPadding>0 and $maxWidthContainer>0) {
+        padding: 0 rem(math.div($containerPadding, 2));
+      }
+    }
+  }
 }
 
 .custom-scrollbar::-webkit-scrollbar {
-	@apply w-[4px] h-[4px] rounded-[2px] transition-colors relative;
+  @apply w-[4px] h-[4px] rounded-[2px] transition-colors relative;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-	@apply bg-light-2 dark:bg-secondary-500/0;
+  @apply bg-light-2 dark:bg-secondary-500/0;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-	@apply bg-[#ff4ab7be] rounded-[50px];
+  @apply bg-[#ff4ab7be] rounded-[50px];
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-	background: #c85ede;
+  background: #c85ede;
 }
 .common-container {
-	@apply h-full custom-scrollbar overflow-y-scroll;
+  @apply h-full custom-scrollbar overflow-y-scroll;
 }
 
 .home-title {
-	@include adaptiveValue(font-size, 50, 24);
+  @include adaptiveValue(font-size, 50, 24);
 }
 
 .button-primary {
@@ -214,10 +279,15 @@ html {
   cursor: pointer;
   color: #fff;
   height: 2.5em;
-	padding: 0 1em;
+  padding: 0 1em;
   line-height: 2em;
   text-align: center;
-  background: linear-gradient(90deg, $primary-500, $secondary-500, $primary-500);
+  background: linear-gradient(
+    90deg,
+    $primary-500,
+    $secondary-500,
+    $primary-500
+  );
   background-size: 300%;
   border-radius: 6px;
   z-index: 1;
@@ -246,7 +316,12 @@ html {
   right: -5px;
   bottom: -5px;
   z-index: -1;
-  background: linear-gradient(90deg, $primary-500, $secondary-500, $primary-500);
+  background: linear-gradient(
+    90deg,
+    $primary-500,
+    $secondary-500,
+    $primary-500
+  );
   background-size: 400%;
   border-radius: 10px;
   transition: 1s;
@@ -257,5 +332,10 @@ html {
 }
 
 .button-primary:active {
-  background: linear-gradient(32deg, $primary-500, $secondary-500, $primary-500);
+  background: linear-gradient(
+    32deg,
+    $primary-500,
+    $secondary-500,
+    $primary-500
+  );
 }

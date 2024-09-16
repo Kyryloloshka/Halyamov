@@ -1,7 +1,12 @@
 import gsap from "gsap";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
+const userAgent =
+  typeof window !== "undefined" ? window.navigator.userAgent : "";
+const isMobile = () => /Mobi|Android/i.test(userAgent);
+
 export const animatePageIn = () => {
+  if (isMobile()) return;
   const tranElems = [
     document.getElementById("transition-element"),
     document.getElementById("transition-element-2"),
@@ -15,15 +20,16 @@ export const animatePageIn = () => {
 
       tl.set(elem, {
         xPercent: 0,
-      }).delay(0.3 + index * 0.1)
+      })
+        .delay(0.3 + index * 0.1)
         .to(elem, {
           xPercent: 100,
           duration: 0.8,
           onComplete: () => {
             document.body.style.overflow = "auto";
-            document.body.style.paddingRight = "0px"
-          }
-        })
+            document.body.style.paddingRight = "0px";
+          },
+        });
     }
   });
 
@@ -36,9 +42,13 @@ export const animatePageIn = () => {
 };
 
 export const animatePageOut = (href: string, router: AppRouterInstance) => {
-  const scrollWidth = window.innerWidth - document.documentElement.clientWidth
+  if (isMobile()) {
+    router.push(href);
+    return;
+  }
+  const scrollWidth = window.innerWidth - document.documentElement.clientWidth;
   document.body.style.overflow = "hidden";
-  document.body.style.paddingRight = `${scrollWidth}px`
+  document.body.style.paddingRight = `${scrollWidth}px`;
   const tranElems = [
     document.getElementById("transition-element"),
     document.getElementById("transition-element-2"),
@@ -52,7 +62,8 @@ export const animatePageOut = (href: string, router: AppRouterInstance) => {
 
       tl.set(elem, {
         xPercent: -100,
-      }).delay((2 - index) * 0.1)
+      })
+        .delay((2 - index) * 0.1)
         .to(elem, {
           xPercent: 0,
           duration: 0.8,

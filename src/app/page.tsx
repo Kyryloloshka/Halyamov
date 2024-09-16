@@ -28,9 +28,10 @@ export default function Home() {
             Hi, I&apos;m Halyamov Kyrylo.
           </div>
           <TextEffect
-            per="char"
+            per="word"
             preset="fade"
             as="p"
+            delay={0.05}
             className="text-lg leading-6"
           >
             A dynamic and results-driven Web Developer with a proven track
