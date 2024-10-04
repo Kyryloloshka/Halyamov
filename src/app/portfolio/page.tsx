@@ -19,7 +19,7 @@ const Portfolio = () => {
       animate={{ x: "0%" }}
       transition={{ duration: 1, delay: 0.1, ease: "easeInOut" }}
     >
-      <section className="text-dark-4 ">
+      <section className="text-dark-4 overflow-x-hidden">
         <motion.div
           className={`min-h-screen flex items-center justify-center text-8xl text-center my-works-title`}
         >
