@@ -3,12 +3,14 @@ import DemoButton from "../DemoButton";
 import Image from "next/image";
 import { useInView } from "framer-motion";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export type PortfolioItem = {
   title: string;
   desc: string;
   img: string;
   link: string;
+  linkGh: string;
 };
 
 const PortfolioItem = ({
@@ -53,6 +55,21 @@ const PortfolioItem = ({
         className="w-80 md:w-96 lg:w-[500px] lg:text-lg xl:w-[600px]"
       >
         {item.desc}
+      </motion.p>
+      <motion.p
+        initial={{ x: initialPosition, opacity: 0 }}
+        animate={isRefInView ? { x: 0, opacity: 1 } : {}}
+        transition={{ duration: 0.6, delay: 0.6, ease: "backOut" }}
+        className="w-80 md:w-96 lg:w-[500px] lg:text-lg xl:w-[600px]"
+      >
+        <Link href={item.linkGh}>
+          <button
+            type="button"
+            className="py-2 px-4 bg-secondary-500 rounded-md text-dark-3 hover:scale-105 transition"
+          >
+            View in GitHub
+          </button>
+        </Link>
       </motion.p>
     </motion.div>
   );

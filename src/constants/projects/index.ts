@@ -4,7 +4,8 @@ export const projects = [
     title: "Student Council Website",
     desc: "This is a student council website built with Next.js. It allows students to view upcoming events, import schedules to their calendar, join student council, and more.",
     img: "/assets/images/sckpi.png",
-    link: "https://student-council-website.vercel.app/",
+    link: "https://sckpi.vercel.app/",
+    linkGh: "https://github.com/srkpi/sc-kpi-web",
   },
   {
     id: 1,
@@ -12,20 +13,23 @@ export const projects = [
     desc: "Innovative 3D tic tac toe game built with Three.js and Next.js. It's a fun game to play with friends and family.",
     img: "/assets/images/tic-tac-toe.png",
     link: "https://ddd-tic-tac-toe.vercel.app/",
+    linkGh: "https://github.com/Kyryloloshka/3D-Tic-Tac-Toe",
   },
   {
     id: 2,
-    title: "Tohachat App",
-    desc: "This is a social media application built with Next.js and Appwrite database. That allows users to post messages and images, and also like and comment on posts, edit their profile, and more.",
-    img: "/assets/images/tohachat.png",
-    link: "https://tohachat.vercel.app/",
-  },
-  {
-    id: 3,
     title: "Communi Chat App",
     desc: "This is a chat application built with Next.js and Firebase. It allows users to chat with friends and family.",
     img: "/assets/images/communi.png",
     link: "https://communi-ochre.vercel.app/",
+    linkGh: "https://github.com/Kyryloloshka/Communi",
+  },
+  {
+    id: 3,
+    title: "Tohachat App",
+    desc: "This is a social media application built with Next.js and Appwrite database. That allows users to post messages and images, and also like and comment on posts, edit their profile, and more.",
+    img: "/assets/images/tohachat.png",
+    link: "https://tohachat.vercel.app/",
+    linkGh: "https://github.com/Kyryloloshka/Tohachat",
   },
   {
     id: 4,
@@ -33,6 +37,7 @@ export const projects = [
     desc: "This is a chess game built with Next.js and Firebase.",
     img: "/assets/images/chessmate.png",
     link: "https://chess-2-0-next-js.vercel.app/play",
+    linkGh: "https://github.com/Kyryloloshka/Chess-2.0-Next.js",
   },
   {
     id: 5,
@@ -40,5 +45,6 @@ export const projects = [
     desc: "This portfolio is built with Next.js, Framer Motion and Gsap. It's a responsive and interactive portfolio that showcases my works and skills.",
     img: "/assets/images/portfolio.png",
     link: "/",
+    linkGh: "https://github.com/Kyryloloshka/Halyamov",
   },
 ];
