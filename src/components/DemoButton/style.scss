@@ -13,10 +13,6 @@
     &::before {
       background: #000000b5;
     }
-    &::after {
-      opacity: 1;
-      top: 50%;
-    }
   }
 
   &::before {
@@ -24,25 +20,13 @@
     content: "";
     height: 100%;
     width: 100%;
-    left:0;
+    left: 0;
     top: 0;
     z-index: 1;
     pointer-events: none;
     position: absolute;
   }
-  &::after {
-    content: "View Demo";
-    z-index: 2;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  .demo-button-text {
     @include mixins.adaptiveValue(font-size, 28, 18);
-    text-transform: uppercase;
-    font-weight: 500;
-    color: white;
-    letter-spacing: 0.08em;
-    transition: all, 0.3s;
-    top: 60%;
-    opacity: 0;
   }
 }

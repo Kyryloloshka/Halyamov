@@ -62,7 +62,7 @@ const PortfolioItem = ({
         transition={{ duration: 0.6, delay: 0.6, ease: "backOut" }}
         className="w-80 md:w-96 lg:w-[500px] lg:text-lg xl:w-[600px]"
       >
-        <Link href={item.linkGh}>
+        <Link target="_blank" href={item.linkGh}>
           <button
             type="button"
             className="py-2 px-4 bg-secondary-500 rounded-md text-dark-3 hover:scale-105 transition"
