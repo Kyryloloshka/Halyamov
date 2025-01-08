@@ -147,7 +147,7 @@ const About = () => {
             </motion.h1>
             <ul className="max-w-[500px] sm:max-w-[700px]">
               {experiences.map((experience, index) => (
-                <li className="flex justify-between sm:h-48">
+                <li key={experience.title} className="flex justify-between sm:h-48">
                   {index % 2 !== 0 && (
                     <>
                       <div className="hidden sm:w-[calc((100%-5rem)/2)] sm:flex flex-col gap-1 items-start"></div>
