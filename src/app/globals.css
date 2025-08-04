@@ -2,6 +2,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* CSS Variables for themes */
+:root {
+  /* Light theme colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b7280;
+  --text-light: #ffffff;
+  --border-color: #e5e7eb;
+  --accent-primary: #3b82f6;
+  --accent-secondary: #10b981;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] {
+  /* Dark theme colors */
+  --bg-primary: #0a0a1a;
+  --bg-secondary: #1d1d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --text-light: #0a0a1a;
+  --border-color: #222227;
+  --accent-primary: #60a5fa;
+  --accent-secondary: #34d399;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
 /*Онулення*/
 * {
   padding: 0;
@@ -89,6 +116,19 @@ body,
 html {
   width: 100%;
   font-size: 16;
+}
+
+/* Dark mode styles */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode for sections */
+[data-theme="dark"] section {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 .wrapper {

@@ -34,7 +34,7 @@ const PortfolioItem = ({
         initial={{ x: initialPosition, opacity: 0 }}
         animate={isRefInView ? { x: 0, opacity: 1 } : {}}
         transition={{ duration: 0.6, ease: "backOut" }}
-        className="text-adaptive-title font-bold text-dark-5"
+        className="text-adaptive-title font-bold text-dark-5 dark:text-light-1"
       >
         {item.title}
       </motion.h1>
@@ -52,7 +52,7 @@ const PortfolioItem = ({
         initial={{ x: initialPosition, opacity: 0 }}
         animate={isRefInView ? { x: 0, opacity: 1 } : {}}
         transition={{ duration: 0.6, delay: 0.4, ease: "backOut" }}
-        className="w-80 md:w-96 lg:w-[500px] lg:text-lg xl:w-[600px]"
+        className="w-80 md:w-96 lg:w-[500px] lg:text-lg xl:w-[600px] dark:text-light-2"
       >
         {item.desc}
       </motion.p>
@@ -60,12 +60,12 @@ const PortfolioItem = ({
         initial={{ x: initialPosition, opacity: 0 }}
         animate={isRefInView ? { x: 0, opacity: 1 } : {}}
         transition={{ duration: 0.6, delay: 0.6, ease: "backOut" }}
-        className="w-80 md:w-96 lg:w-[500px] lg:text-lg xl:w-[600px]"
+        className="w-80 md:w-96 lg:w-[500px] lg:text-lg xl:w-[600px] dark:text-light-2"
       >
         <Link target="_blank" href={item.linkGh}>
           <button
             type="button"
-            className="py-2 px-4 bg-secondary-500 rounded-md text-dark-3 hover:scale-105 transition"
+            className="py-2 px-4 bg-secondary-500 dark:bg-secondary-700 rounded-md text-dark-3 dark:text-light-1 hover:scale-105 transition hover:bg-secondary-600 dark:hover:bg-secondary-800 shadow-md dark:shadow-secondary-700/50"
           >
             View in GitHub
           </button>

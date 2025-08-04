@@ -5,6 +5,7 @@ import NavBar from "@/components/NavBar";
 import BackgroundWrapper from "@/components/BackgroundWrapper";
 import StoreProvider from "@/components/StoreProvider";
 import SocialLinks from "@/components/SocialLinks";
+import ThemeProvider from "@/components/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,13 +28,15 @@ export default function RootLayout({
         }
       >
         <StoreProvider>
-          <BackgroundWrapper>
-            <div className="relative z-[0]">
-              <NavBar />
-              <main className="relative z-[-3]">{children}</main>
-              <SocialLinks />
-            </div>
-          </BackgroundWrapper>
+          <ThemeProvider>
+            <BackgroundWrapper>
+              <div className="relative z-[0]">
+                <NavBar />
+                <main className="relative z-[-3]">{children}</main>
+                <SocialLinks />
+              </div>
+            </BackgroundWrapper>
+          </ThemeProvider>
         </StoreProvider>
       </body>
     </html>

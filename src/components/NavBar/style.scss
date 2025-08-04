@@ -14,6 +14,11 @@
   box-shadow: 0 2px 9px rgba(116, 6, 103, 0.1);
 }
 
+[data-theme="dark"] .bg-filter {
+  background: rgba(17, 17, 24, 0.9);
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.4);
+}
+
 #checkbox {
   display: none;
 }
@@ -39,6 +44,11 @@
   transition: none 0.35s cubic-bezier(0.5, -0.35, 0.35, 1.5) 0s;
 }
 
+[data-theme="dark"] .bars {
+  background: #ffffff;
+  opacity: 0.9;
+}
+
 #bar1 {
   bottom: calc(50% + 7px + 3px / 2);
   transition-property: bottom, transform;
@@ -58,6 +68,10 @@
 }
 #checkbox:checked + .toggle .bars {
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="dark"] #checkbox:checked + .toggle .bars {
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 #checkbox:checked + .toggle #bar1 {

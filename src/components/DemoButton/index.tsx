@@ -86,14 +86,14 @@ const DemoButton = ({
       {children}
       <div
         ref={checkTabTextRef}
-        className="demo-button-text absolute z-[2] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 uppercase font-medium text-light-1 tracking-[0.08em]"
+        className="demo-button-text absolute z-[2] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 uppercase font-medium text-light-1 dark:text-light-1 tracking-[0.08em]"
         style={{ display: "none", opacity: 0 }}
       >
         Check out new tab
       </div>
       <div
         ref={viewDemotextRef}
-        className="demo-button-text absolute z-[2] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 uppercase font-medium text-light-1 tracking-[0.08em]"
+        className="demo-button-text absolute z-[2] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 uppercase font-medium text-light-1 dark:text-light-1 tracking-[0.08em]"
         style={{ display: "none", opacity: 0 }}
       >
         View demo

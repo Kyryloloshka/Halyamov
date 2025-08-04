@@ -37,7 +37,7 @@ export default function Index({ data, isActive, setSelectedIndicator }: any) {
         animate={isActive ? "open" : "closed"}
         className={styles.indicator}
       ></motion.div>
-      <button onClick={handleClick}>
+      <button onClick={handleClick} className="dark:text-light-1">
         {name}
       </button>
     </motion.div>

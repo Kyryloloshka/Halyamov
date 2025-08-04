@@ -128,7 +128,9 @@ $color-bg1: rgb(208, 150, 235);
 $color-bg2: rgb(208, 217, 255);
 $primary-500: rgb(200, 111, 201);
 $primary-600: rgb(171, 96, 171);
+$primary-700: rgb(142, 81, 141);
 $secondary-500: rgb(69, 195, 230);
+$secondary-700: rgb(49, 175, 210);
 $dark-1: rgb(0, 0, 0);
 $dark-2: rgb(13, 13, 13);
 $dark-3: rgb(23, 23, 23);
@@ -251,15 +253,15 @@ html {
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  @apply bg-light-2 dark:bg-secondary-500/0;
+  @apply bg-light-2 dark:bg-dark-2;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  @apply bg-[#ff4ab7be] rounded-[50px];
+  @apply bg-primary-500 dark:bg-secondary-700 rounded-[50px];
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #c85ede;
+  @apply bg-primary-600 dark:bg-secondary-800;
 }
 .common-container {
   @apply h-full custom-scrollbar overflow-y-scroll;
@@ -291,6 +293,15 @@ html {
   background-size: 300%;
   border-radius: 6px;
   z-index: 1;
+}
+
+[data-theme="dark"] .button-primary {
+  background: linear-gradient(
+    90deg,
+    $primary-700,
+    $secondary-700,
+    $primary-700
+  );
 }
 
 .button-primary:hover {
@@ -327,6 +338,15 @@ html {
   transition: 1s;
 }
 
+[data-theme="dark"] .button-primary:before {
+  background: linear-gradient(
+    90deg,
+    $primary-700,
+    $secondary-700,
+    $primary-700
+  );
+}
+
 .button-primary:hover::before {
   filter: blur(20px);
 }
@@ -337,5 +357,14 @@ html {
     $primary-500,
     $secondary-500,
     $primary-500
+  );
+}
+
+[data-theme="dark"] .button-primary:active {
+  background: linear-gradient(
+    32deg,
+    $primary-700,
+    $secondary-700,
+    $primary-700
   );
 }

@@ -55,7 +55,9 @@ const NavLink = ({ href, label }: { href: string; label: string }) => {
   return (
     <button
       className={`transition p-2 text-[16px] rounded-lg ${
-        isActive && "bg-dark-2 text-light-1"
+        isActive 
+          ? "bg-dark-2 text-light-1 dark:bg-light-2 dark:text-dark-2" 
+          : "hover:bg-dark-2/10 dark:hover:bg-light-1/10 dark:text-light-2"
       }`}
       onClick={handleClick}
     >

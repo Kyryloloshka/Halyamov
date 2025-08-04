@@ -14,10 +14,10 @@ const SkillBlock = ({ title, description }: any) => {
       transition={{ duration: 0.4, ease: "backOut" }}
       className="flex flex-col gap-3 "
     >
-      <h4 className="text-[1.5rem] hover:left-2 relative left-0 transition-[left]">
+      <h4 className="text-[1.5rem] hover:left-2 relative left-0 transition-[left] dark:text-light-1">
         {title}
       </h4>
-      <p className="text-lg hover:left-2 relative left-0 transition-[left]">
+      <p className="text-lg hover:left-2 relative left-0 transition-[left] dark:text-light-2">
         {description}
       </p>
     </motion.li>

@@ -25,7 +25,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({
       className="h-full"
     >
       <div className="pb-36">
-        <div className="flex flex-col gap-24 text-dark-2">
+        <div className="flex flex-col gap-24 text-dark-2 dark:text-light-1">
           <div className="flex flex-col justify-center max-w-[600px] adaptive-gap-about">
             <h1 className="uppercase text-2xl font-semibold hover:left-3 relative left-0 transition-[left]">
               Biography
@@ -43,15 +43,6 @@ const AboutSection: React.FC<AboutSectionProps> = ({
               In the realm of web development, beauty and functionality are not
               just goals; they are the essence of my craft.
             </span>
-            <div className="self-end relative hover:scale-[1.03] transition-[scale]">
-              <Image
-                width={100}
-                height={100}
-                className="stroke-5"
-                src="assets/svgs/sign.svg"
-                alt="sign"
-              />
-            </div>
           </div>
           <div
             ref={expirienceRef}
@@ -88,11 +79,11 @@ const AboutSection: React.FC<AboutSectionProps> = ({
                     }}
                     className="w-[calc(100%-5rem)] pb-12 sm:pb-0 sm:w-[calc((100%-5rem)/2)] flex flex-col gap-1 items-start"
                   >
-                    <h4
-                      className={`bg-white font-semibold rounded-b-lg  p-3 hover:left-3 relative left-0 transition-[left] ${
-                        index % 2 === 0 ? "rounded-r-lg" : "rounded-s-lg"
-                      }`}
-                    >
+                                            <h4
+                          className={`bg-white dark:bg-dark-3 font-semibold rounded-b-lg  p-3 hover:left-3 relative left-0 transition-[left] ${
+                            index % 2 === 0 ? "rounded-r-lg" : "rounded-s-lg"
+                          }`}
+                        >
                       {experience.title}
                     </h4>
                     <p className="p-3 text-small italic hover:left-1 relative left-0 transition-[left]">
@@ -102,7 +93,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({
                       {experience.date}
                     </div>
                     {experience.company && (
-                      <div className="py-1 px-3 mx-3 rounded bg-white text-sm font-semibold hover:left-1 relative left-0 transition-[left]">
+                      <div className="py-1 px-3 mx-3 rounded bg-white dark:bg-dark-3 text-sm font-semibold hover:left-1 relative left-0 transition-[left]">
                         {experience.company}
                       </div>
                     )}

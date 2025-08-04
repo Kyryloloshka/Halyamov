@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { menuSlide } from "./anim";
 import NavLinks from "./NavLinks";
 import { linksActions, useActionCreators, useStateSelector } from "@/state";
+import ThemeToggle from "../ThemeToggle";
 
 const navbarLinks = [
   {
@@ -61,23 +62,24 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="bg-transparrent min-h-[70px] flex items-center justify-center relative bg-filter">
+    <nav className="bg-transparrent min-h-[70px] flex items-center justify-center relative bg-filter dark:bg-dark-1/80">
       <div className="flex flex-auto justify-between nav-bar__container items-center py-5 navbar-gap">
         <Link
           href="/"
           pageName={"home"}
-          className="text-2xl font-bold text-dark-2"
+          className="text-2xl font-bold text-dark-2 dark:text-light-1"
         >
           Halyamov
         </Link>
         <div
-          className={`hidden md:flex navbar-gap flex-wrap justify-center gap-y-1`}
+          className={`hidden md:flex navbar-gap flex-wrap justify-center gap-y-1 items-center`}
         >
           {navbarLinks.map((link) => {
             return (
               <NavLink key={link.href} label={link.name} href={link.href} />
             );
           })}
+          <ThemeToggle />
         </div>
         <div className={`md:hidden z-[10]`}>
           <input
@@ -92,7 +94,7 @@ const NavBar = () => {
             <div className={"bars"} id="bar3"></div>
           </label>
         </div>
-        <div className="overflow-hidden fixed top-0 max-w-screen right-0 h-full z-[9] bg-dark-1">
+        <div className="overflow-hidden fixed top-0 max-w-screen right-0 h-full z-[9] bg-dark-1 dark:bg-dark-2/95">
           <AnimatePresence mode="wait">
             {isActive && (
               <>
