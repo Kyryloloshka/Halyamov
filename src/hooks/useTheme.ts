@@ -28,9 +28,7 @@ export const useTheme = () => {
     if (savedTheme) {
       actions.setTheme(savedTheme);
     } else {
-      // Перевіряємо системну тему
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      actions.setTheme(prefersDark ? 'dark' : 'light');
+      actions.setTheme('dark');
     }
   }, [actions]);
 }; 
