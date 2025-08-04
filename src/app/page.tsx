@@ -1,6 +1,5 @@
 "use client";
 import { TextEffect } from "@/components/ui/TextEffect";
-import { animatePageOut } from "@/lib/animations";
 import { linksActions, useActionCreators } from "@/state";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
@@ -12,16 +11,11 @@ export default function Home() {
   const handleClickButtonPortfolio = () => {
     actions.setCurrentPageLabel("Projects");
     actions.setCurrentHref("/portfolio");
-    animatePageOut("/portfolio", router);
+    router.push("/portfolio");
   };
 
   return (
-    <motion.div
-      className="home-page__container min-h-screen flex justify-center items-center"
-      initial={{ x: "-20vw" }}
-      animate={{ x: "0%" }}
-      transition={{ duration: 1, delay: 0.1, ease: "easeInOut" }}
-    >
+    <div className="home-page__container min-h-screen flex justify-center items-center">
       <div className="h-full flex justify-center items-center gap-8">
         <div className="flex flex-col gap-9 items-center text-center max-w-[800px] justify-center flex-auto tracking-wider">
           <div className="font-semibold text-dark-4 home-title">
@@ -48,6 +42,6 @@ export default function Home() {
           </button>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

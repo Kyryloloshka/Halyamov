@@ -1,5 +1,4 @@
 "use client";
-import { animatePageOut } from "@/lib/animations";
 import { linksActions, useActionCreators } from "@/state";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -10,7 +9,7 @@ const NotFound = () => {
   const handleGoToHome = () => {
     actions.setCurrentPageLabel("home");
     actions.setCurrentHref("/");
-    animatePageOut("/", router);
+    router.push("/");
   };
   return (
     <div className="text-center not-found__container h-screen flex flex-col gap-9 items-center justify-center text-dark-3">

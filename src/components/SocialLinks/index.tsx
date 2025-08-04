@@ -2,7 +2,6 @@
 import React from "react";
 import "./style.scss";
 import Link from "next/link";
-import { animatePageOut } from "@/lib/animations";
 import { usePathname, useRouter } from "next/navigation";
 import { linksActions, useActionCreators } from "@/state";
 
@@ -14,7 +13,7 @@ const SocialLinks = () => {
   const handleContact = () => {
     actions.setCurrentPageLabel("contact");
     actions.setCurrentHref("/contact");
-    animatePageOut("/contact", router);
+    router.push("/contact");
   };
 
   return (

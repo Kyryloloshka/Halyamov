@@ -1,5 +1,4 @@
 "use client";
-import { animatePageOut } from "@/lib/animations";
 import { linksActions, useActionCreators } from "@/state";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -12,7 +11,7 @@ const NavLink = ({ href, label }: { href: string; label: string }) => {
     if (pathname === href) return;
     actions.setCurrentPageLabel(label);
     actions.setCurrentHref(href);
-    animatePageOut(href, router);
+    router.push(href);
   };
   return (
     <button

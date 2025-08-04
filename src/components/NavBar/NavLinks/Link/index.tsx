@@ -2,7 +2,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { slide, scale } from "../../anim";
 import styles from "./style.module.scss";
-import { animatePageOut } from "@/lib/animations";
 import { usePathname, useRouter } from "next/navigation";
 import { linksActions, useActionCreators } from "@/state";
 
@@ -34,7 +33,7 @@ export default function Index({ data, isActive, setSelectedIndicator }: any) {
           actions.setCurrentPageLabel(name);
           actions.setCurrentHref(href);
           actions.setIsBurgerMenuOpen(false);
-          animatePageOut(href, router);
+          router.push(href);
         }}
       >
         {name}

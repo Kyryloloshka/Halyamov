@@ -4,7 +4,6 @@ import "./globals.scss";
 import NavBar from "@/components/NavBar";
 import BackgroundWrapper from "@/components/BackgroundWrapper";
 import StoreProvider from "@/components/StoreProvider";
-import TransitionProvider from "@/components/TransitionProvider";
 import SocialLinks from "@/components/SocialLinks";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -31,9 +30,7 @@ export default function RootLayout({
           <BackgroundWrapper>
             <div className="relative z-[0]">
               <NavBar />
-              <TransitionProvider>
-                <main className="relative z-[-3]">{children}</main>
-              </TransitionProvider>
+              <main className="relative z-[-3]">{children}</main>
               <SocialLinks />
             </div>
           </BackgroundWrapper>

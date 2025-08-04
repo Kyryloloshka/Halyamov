@@ -98,11 +98,11 @@ const About = () => {
     scrollToTop();
   }, []);
   return (
-    <motion.div
+    <motion.div 
+      initial={{ x: "-200px", opacity: 0 }}
+      animate={ { x: 0, opacity: 1 }}
+      transition={{ duration: 0.4, ease: "backOut" }} 
       className="about__container h-full pt-6"
-      initial={{ x: "-20vw" }}
-      animate={{ x: "0%" }}
-      transition={{ duration: 1, delay: 0.1, ease: "easeInOut" }}
     >
       <div className="pb-36">
         <div className="flex flex-col gap-24 text-dark-2">

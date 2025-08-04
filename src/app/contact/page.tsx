@@ -61,11 +61,8 @@ const Contact = () => {
   };
 
   return (
-    <motion.div
+    <div
       className="min-h-screen contact__container h-full flex items-center gap-8"
-      initial={{ x: "-20vw" }}
-      animate={{ x: "0%" }}
-      transition={{ duration: 1, delay: 0.1, ease: "easeInOut" }}
     >
       <div className="h-full flex flex-auto flex-col justify-center  items-center gap-6">
         <form
@@ -109,7 +106,7 @@ const Contact = () => {
           )}
         </form>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
