@@ -12,19 +12,19 @@ import { linksActions, useActionCreators, useStateSelector } from "@/state";
 const navbarLinks = [
   {
     name: "Home",
-    href: "/",
+    href: "#home",
   },
   {
     name: "About",
-    href: "/about",
+    href: "#about",
   },
   {
     name: "Portfolio",
-    href: "/portfolio",
+    href: "#portfolio",
   },
   {
     name: "Contact",
-    href: "/contact",
+    href: "#contact",
   },
 ];
 

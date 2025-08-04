@@ -1,15 +1,25 @@
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { slide, scale } from "../../anim";
 import styles from "./style.module.scss";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { linksActions, useActionCreators } from "@/state";
+import { smoothScrollTo } from "@/lib/smoothScroll";
 
 export default function Index({ data, isActive, setSelectedIndicator }: any) {
   const { name, href, index } = data;
   const actions = useActionCreators(linksActions);
-  const router = useRouter();
   const pathname = usePathname();
+
+  const handleClick = () => {
+    if (href.startsWith('#')) {
+      // Custom smooth scroll to section
+      smoothScrollTo(href);
+    }
+    actions.setCurrentPageLabel(name);
+    actions.setCurrentHref(href);
+    actions.setIsBurgerMenuOpen(false);
+  };
+
   return (
     <motion.div
       className={styles.link}
@@ -27,15 +37,7 @@ export default function Index({ data, isActive, setSelectedIndicator }: any) {
         animate={isActive ? "open" : "closed"}
         className={styles.indicator}
       ></motion.div>
-      <button
-        onClick={() => {
-          if (pathname === href) return;
-          actions.setCurrentPageLabel(name);
-          actions.setCurrentHref(href);
-          actions.setIsBurgerMenuOpen(false);
-          router.push(href);
-        }}
-      >
+      <button onClick={handleClick}>
         {name}
       </button>
     </motion.div>

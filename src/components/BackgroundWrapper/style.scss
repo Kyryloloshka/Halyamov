@@ -68,12 +68,17 @@
   svg {
     display: none;
   }
+
+
   .gradients-container {
+    // filter: url(#goo) blur(130px) ;
+    width: 100%;
+    height: 100%;
   }
 
   .g1 {
     position: absolute;
-    background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 50%) no-repeat;
+    background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0%, rgba(var(--color1), 0) 50%) no-repeat;
     mix-blend-mode: var(--blending);
 
     width: var(--circle-size);

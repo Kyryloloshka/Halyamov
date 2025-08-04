@@ -1,0 +1,30 @@
+// Portfolio section styles
+.protfolio__container {
+  // Add any specific portfolio styles here
+}
+
+// Contact section styles
+.contact__container {
+  // Add any specific contact styles here
+}
+
+// About section styles
+.adaptive-gap-about {
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .adaptive-gap-about {
+    gap: 1rem;
+  }
+}
+
+// Home section styles
+.home-page__container {
+  // Add any specific home page styles here
+}
+
+// Smooth scroll offset for fixed navbar
+html {
+  scroll-padding-top: 70px; // Adjust based on your navbar height
+} 

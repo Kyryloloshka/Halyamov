@@ -8,7 +8,42 @@ import { menuSlide } from "../anim";
 
 const NavLinks = ({ navbarLinks }: { navbarLinks: any }) => {
   const pathname = usePathname();
-  const [selectedIndicator, setSelectedIndicator] = useState(pathname);
+  const [selectedIndicator, setSelectedIndicator] = useState('#home');
+
+  // Function to determine which section is currently in view
+  const getCurrentSection = () => {
+    const sections = ['#home', '#about', '#portfolio', '#contact'];
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const element = document.querySelector(sections[i]);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 100) {
+          return sections[i];
+        }
+      }
+    }
+    return '#home';
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentSection = getCurrentSection();
+      setSelectedIndicator(currentSection);
+    };
+
+    // Set initial section after a small delay to ensure DOM is ready
+    const timer = setTimeout(() => {
+      const initialSection = getCurrentSection();
+      setSelectedIndicator(initialSection);
+    }, 100);
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <motion.div
       variants={menuSlide}
@@ -20,7 +55,8 @@ const NavLinks = ({ navbarLinks }: { navbarLinks: any }) => {
       <div className={styles.body}>
         <div
           onMouseLeave={() => {
-            setSelectedIndicator(pathname);
+            const currentSection = getCurrentSection();
+            setSelectedIndicator(currentSection);
           }}
           className={styles.nav}
         >
@@ -29,7 +65,7 @@ const NavLinks = ({ navbarLinks }: { navbarLinks: any }) => {
               <Link
                 key={index}
                 data={{ ...data, index }}
-                isActive={selectedIndicator == data.href}
+                isActive={selectedIndicator === data.href}
                 setSelectedIndicator={setSelectedIndicator}
               ></Link>
             );
