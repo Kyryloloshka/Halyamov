@@ -1,28 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useStateSelector, themeActions, useActionCreators } from '@/state';
 
 export const useTheme = () => {
   const theme = useStateSelector((state) => state.theme.theme);
   const actions = useActionCreators(themeActions);
+  const [isMounted, setIsMounted] = useState(false);
 
-  useEffect(() => {
-    const html = document.documentElement;
-    
-    // Встановлюємо data-theme атрибут
-    html.setAttribute('data-theme', theme);
-    
-    // Встановлюємо Tailwind dark mode class
-    if (theme === 'dark') {
-      html.classList.add('dark');
-    } else {
-      html.classList.remove('dark');
-    }
-    
-    // Зберігаємо тему в localStorage
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  // Ініціалізуємо тему при завантаженні
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
     if (savedTheme) {
@@ -30,5 +13,24 @@ export const useTheme = () => {
     } else {
       actions.setTheme('dark');
     }
+    setIsMounted(true);
   }, [actions]);
+
+  useEffect(() => {
+    if (!isMounted) {
+      return;
+    }
+
+    const html = document.documentElement;
+    
+    html.setAttribute('data-theme', theme);
+    
+    if (theme === 'dark') {
+      html.classList.add('dark');
+    } else {
+      html.classList.remove('dark');
+    }
+    
+    localStorage.setItem('theme', theme);
+  }, [theme, isMounted]);
 }; 
