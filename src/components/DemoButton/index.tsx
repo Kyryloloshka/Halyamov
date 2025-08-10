@@ -40,7 +40,7 @@ const DemoButton = ({
     }
   }, [isHovered, isAnimating]);
   const handleClick = () => {
-    if (isAnimating) return; // Уникнення повторного натискання під час анімації
+    if (isAnimating) return;
 
     setIsAnimating(true);
     const buttonElement = buttonRef.current;
@@ -96,7 +96,7 @@ const DemoButton = ({
         className="demo-button-text absolute z-[2] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 uppercase font-medium text-light-1 dark:text-light-1 tracking-[0.08em]"
         style={{ display: "none", opacity: 0 }}
       >
-        View demo
+        {href.startsWith("https://github.com") ? "View in GitHub" : "View demo"}
       </div>
     </button>
   );

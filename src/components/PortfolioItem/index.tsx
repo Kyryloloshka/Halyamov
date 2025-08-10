@@ -45,7 +45,7 @@ const PortfolioItem = ({
         className=""
       >
         <DemoButton href={item.link}>
-          <Image src={item.img} alt="" fill />
+          <Image src={item.img} alt="" fill className="object-cover object-top" />
         </DemoButton>
       </motion.div>
       <motion.p

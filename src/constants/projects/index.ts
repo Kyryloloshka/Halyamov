@@ -1,14 +1,22 @@
 export const projects = [
   {
     id: 0,
-    title: "Student Council Website",
-    desc: "This is a student council website built with Next.js. It allows students to view upcoming events, import schedules to their calendar, join student council, and more.",
-    img: "/assets/images/sckpi.png",
-    link: "https://sckpi.vercel.app/",
-    linkGh: "https://github.com/srkpi/sc-kpi-web",
+    title: "Codinity Labs",
+    desc: "This is a website for a company that provides software development services. It's a responsive and interactive website that showcases the company's services and projects.",
+    img: "/assets/images/codinity.jpg",
+    link: "https://github.com/Kyryloloshka/CodinityLabs",
+    linkGh: "https://github.com/Kyryloloshka/CodinityLabs",
   },
   {
     id: 1,
+    title: "Student Council Website",
+    desc: "This is a student council website built with Next.js. It allows students to view upcoming events, import schedules to their calendar, join student council, and more.",
+    img: "/assets/images/sckpi.png",
+    link: "https://sc.kpi.ua/",
+    linkGh: "https://github.com/srkpi/sc-kpi-web",
+  },
+  {
+    id: 2,
     title: "3D tic tac toe",
     desc: "Innovative 3D tic tac toe game built with Three.js and Next.js. It's a fun game to play with friends and family.",
     img: "/assets/images/tic-tac-toe.png",
@@ -16,7 +24,7 @@ export const projects = [
     linkGh: "https://github.com/Kyryloloshka/3D-Tic-Tac-Toe",
   },
   {
-    id: 2,
+    id: 3,
     title: "Communi Chat App",
     desc: "This is a chat application built with Next.js and Firebase. It allows users to chat with friends and family.",
     img: "/assets/images/communi.png",
@@ -24,20 +32,12 @@ export const projects = [
     linkGh: "https://github.com/Kyryloloshka/Communi",
   },
   {
-    id: 3,
+    id: 4,
     title: "Tohachat App",
     desc: "This is a social media application built with Next.js and Appwrite database. That allows users to post messages and images, and also like and comment on posts, edit their profile, and more.",
     img: "/assets/images/tohachat.png",
     link: "https://tohachat.vercel.app/",
     linkGh: "https://github.com/Kyryloloshka/Tohachat",
-  },
-  {
-    id: 4,
-    title: "Chess Game",
-    desc: "This is a chess game built with Next.js and Firebase.",
-    img: "/assets/images/chessmate.png",
-    link: "https://chess-2-0-next-js.vercel.app/play",
-    linkGh: "https://github.com/Kyryloloshka/Chess-2.0-Next.js",
   },
   {
     id: 5,
