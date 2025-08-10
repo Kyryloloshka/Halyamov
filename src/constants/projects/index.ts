@@ -2,7 +2,7 @@ export const projects = [
   {
     id: 0,
     title: "Codinity Labs",
-    desc: "This is a website for a company that provides software development services. It's a responsive and interactive website that showcases the company's services and projects.",
+    desc: "A modern educational platform that revolutionizes programming education through automated code assessment, real-time feedback, and comprehensive student progress tracking. Built with microservices architecture for scalability and maintainability.",
     img: "/assets/images/codinity.jpg",
     link: "https://github.com/Kyryloloshka/CodinityLabs",
     linkGh: "https://github.com/Kyryloloshka/CodinityLabs",
@@ -25,6 +25,14 @@ export const projects = [
   },
   {
     id: 3,
+    title: "Weather Notification",
+    desc: "Weather Forecast Microservices is a NestJS-based microservices system that provides automated weather notifications via email subscriptions, allowing users to receive hourly or daily weather updates for their chosen cities through a scheduled email service, with weather data fetched from multiple providers and managed through a subscription workflow system, all containerized with Docker and communicating via gRPC.",
+    img: "/assets/images/weather.jpg",
+    link: "https://github.com/Kyryloloshka/WeatherNotify",
+    linkGh: "https://github.com/Kyryloloshka/WeatherNotify",
+  },
+  {
+    id: 4,
     title: "Communi Chat App",
     desc: "This is a chat application built with Next.js and Firebase. It allows users to chat with friends and family.",
     img: "/assets/images/communi.png",
@@ -32,7 +40,7 @@ export const projects = [
     linkGh: "https://github.com/Kyryloloshka/Communi",
   },
   {
-    id: 4,
+    id: 5,
     title: "Tohachat App",
     desc: "This is a social media application built with Next.js and Appwrite database. That allows users to post messages and images, and also like and comment on posts, edit their profile, and more.",
     img: "/assets/images/tohachat.png",
@@ -40,7 +48,7 @@ export const projects = [
     linkGh: "https://github.com/Kyryloloshka/Tohachat",
   },
   {
-    id: 5,
+    id: 6,
     title: "This Portfolio",
     desc: "This portfolio is built with Next.js, Framer Motion and Gsap. It's a responsive and interactive portfolio that showcases my works and skills.",
     img: "/assets/images/portfolio.png",
