@@ -1,19 +1,17 @@
 import React from "react";
-import PortfolioItem from "@/components/PortfolioItem";
+import PortfolioItem, {
+  type PortfolioItem as PortfolioItemType,
+} from "@/components/PortfolioItem";
 
-const PortfolioSection = ({ projects }: { projects: any[] }) => {
+const PortfolioSection = ({ projects }: { projects: PortfolioItemType[] }) => {
   return (
     <section id="portfolio" className="text-dark-4 dark:text-light-1 h-full relative">
-      <h3
-        className={`text-2xl font-semibold hover:left-3 relative left-0 transition-[left] py-12 uppercase`}
-      >
+      <h2 className="text-2xl font-semibold hover:translate-x-3 transition-transform py-12 uppercase">
         My Works
-      </h3>
+      </h2>
       <div className="flex flex-col gap-[100px]">
         {projects.map((project, index) => (
-          <React.Fragment key={index}>
-            <PortfolioItem item={project} index={index} />
-          </React.Fragment>
+          <PortfolioItem key={project.title} item={project} index={index} />
         ))}
       </div>
     </section>

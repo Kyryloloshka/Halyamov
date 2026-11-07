@@ -8,14 +8,13 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(221, 188, 255, 0.7);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  // No backdrop-filter: it re-blurs the animated background on every frame.
+  background: rgba(221, 188, 255, 0.94);
   box-shadow: 0 2px 9px rgba(116, 6, 103, 0.1);
 }
 
 [data-theme="dark"] .bg-filter {
-  background: rgba(17, 17, 24, 0.9);
+  background: rgba(17, 17, 24, 0.95);
   box-shadow: 0 2px 9px rgba(0, 0, 0, 0.4);
 }
 

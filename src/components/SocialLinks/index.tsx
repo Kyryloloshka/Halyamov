@@ -2,27 +2,17 @@
 import React from "react";
 import "./style.scss";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { linksActions, useActionCreators } from "@/state";
+import { usePathname } from "next/navigation";
+import { smoothScrollTo } from "@/lib/smoothScroll";
 
 const SocialLinks = () => {
-  const router = useRouter();
   const pathname = usePathname();
-  const actions = useActionCreators(linksActions);
 
-  const handleContact = () => {
-    actions.setCurrentPageLabel("contact");
-    actions.setCurrentHref("#contact");
-    // Smooth scroll to contact section
-    const element = document.querySelector('#contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const handleContact = () => smoothScrollTo("#contact");
 
   return (
     <div className="fixed z-[-1] right-8 bottom-0 translate-y-[-25%] flex gap-2">
-      <Link href="https://www.instagram.com/halyamovv/" className="button">
+      <Link href="https://www.instagram.com/halyamovv/" className="button" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         <svg
           viewBox="0 0 24 24"
           fill="none"
@@ -41,7 +31,7 @@ const SocialLinks = () => {
         </svg>
       </Link>
 
-      <Link href="https://github.com/Kyryloloshka" className="button">
+      <Link href="https://github.com/Kyryloloshka" className="button" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
         <svg
           viewBox="0 0 24 24"
           fill="currentColor"
@@ -58,7 +48,7 @@ const SocialLinks = () => {
           ></path>
         </svg>
       </Link>
-      <Link href="https://t.me/kyryloloshka" className="button">
+      <Link href="https://t.me/kyryloloshka" className="button" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
         <svg
           viewBox="0 0 48 48"
           fill="none"
@@ -82,7 +72,7 @@ const SocialLinks = () => {
         </svg>
       </Link>
       {pathname === "/" && (
-        <button onClick={handleContact} className="button">
+        <button onClick={handleContact} className="button" aria-label="Contact form">
           <svg
             fill="currentColor"
             viewBox="0 0 32 32"

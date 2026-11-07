@@ -1,31 +1,32 @@
 import { motion } from "framer-motion";
 import { slide, scale } from "../../anim";
 import styles from "./style.module.scss";
-import { usePathname } from "next/navigation";
-import { linksActions, useActionCreators } from "@/state";
 import { smoothScrollTo } from "@/lib/smoothScroll";
 
-export default function Index({ data, isActive, setSelectedIndicator }: any) {
+type Props = {
+  data: { name: string; href: string; index: number };
+  isActive: boolean;
+  setSelectedIndicator: (href: string) => void;
+  onNavigate: () => void;
+};
+
+export default function Index({
+  data,
+  isActive,
+  setSelectedIndicator,
+  onNavigate,
+}: Props) {
   const { name, href, index } = data;
-  const actions = useActionCreators(linksActions);
-  const pathname = usePathname();
 
   const handleClick = () => {
-    if (href.startsWith('#')) {
-      // Custom smooth scroll to section
-      smoothScrollTo(href);
-    }
-    actions.setCurrentPageLabel(name);
-    actions.setCurrentHref(href);
-    actions.setIsBurgerMenuOpen(false);
+    if (href.startsWith("#")) smoothScrollTo(href);
+    onNavigate();
   };
 
   return (
     <motion.div
       className={styles.link}
-      onMouseEnter={() => {
-        setSelectedIndicator(href);
-      }}
+      onMouseEnter={() => setSelectedIndicator(href)}
       custom={index}
       variants={slide}
       initial="initial"

@@ -8,25 +8,32 @@
 }
 
 .button-demo {
-  &:hover {
-    background-color: #f00;
-    &::before {
-      background: #000000b5;
-    }
-  }
-
   &::before {
-    transition: all, 0.3s;
     content: "";
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top: 0;
+    position: absolute;
+    inset: 0;
     z-index: 1;
     pointer-events: none;
-    position: absolute;
+    background: #000000b5;
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
+
   .demo-button-text {
     @include mixins.adaptiveValue(font-size, 28, 18);
+    opacity: 0;
+    transform: translate(-50%, calc(-50% - 30px));
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  &:hover,
+  &:focus-visible {
+    &::before {
+      opacity: 1;
+    }
+    .demo-button-text {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
   }
 }
