@@ -6,7 +6,9 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: 'class',
+  // `.dark .dark\:x` instead of Tailwind's default `.dark\:x:is(.dark *)`:
+  // `:is()` is unsupported before Safari 14 / Chrome 88, which broke dark mode there.
+  darkMode: ['variant', '.dark &'],
   theme: {
     extend: {
       colors: {

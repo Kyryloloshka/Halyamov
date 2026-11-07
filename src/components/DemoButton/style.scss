@@ -7,14 +7,26 @@
   @include mixins.adaptiveValue(font-size, 30, 20);
 }
 
+// Fallback for browsers without aspect-ratio (Safari < 15, Chrome < 88):
+// without it the box collapses to 0 height and the `fill` image disappears.
+@supports not (aspect-ratio: 1 / 1) {
+  .button-demo {
+    height: 0;
+    padding-top: 60%; // 12 / 20
+  }
+}
+
 .button-demo {
   &::before {
     content: "";
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 1;
     pointer-events: none;
-    background: #000000b5;
+    background: rgba(0, 0, 0, 0.71);
     opacity: 0;
     transition: opacity 0.3s ease;
   }
@@ -22,18 +34,35 @@
   .demo-button-text {
     @include mixins.adaptiveValue(font-size, 28, 18);
     opacity: 0;
+    -webkit-transform: translate(-50%, calc(-50% - 30px));
     transform: translate(-50%, calc(-50% - 30px));
     transition: opacity 0.5s ease, transform 0.5s ease;
   }
+}
 
-  &:hover,
-  &:focus-visible {
-    &::before {
-      opacity: 1;
-    }
-    .demo-button-text {
-      opacity: 1;
-      transform: translate(-50%, -50%);
-    }
-  }
+// Hover and :focus-visible are separate rules on purpose: an unknown
+// pseudo-class in a selector list makes old browsers drop the whole rule.
+.button-demo:hover::before,
+.button-demo:focus::before {
+  opacity: 1;
+}
+.button-demo:hover .demo-button-text,
+.button-demo:focus .demo-button-text {
+  opacity: 1;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.button-demo:focus:not(:focus-visible)::before,
+.button-demo:focus:not(:focus-visible) .demo-button-text {
+  opacity: 0;
+}
+.button-demo:focus:not(:focus-visible) .demo-button-text {
+  transform: translate(-50%, calc(-50% - 30px));
+}
+.button-demo:hover:focus::before,
+.button-demo:hover:focus .demo-button-text {
+  opacity: 1;
+}
+.button-demo:hover:focus .demo-button-text {
+  transform: translate(-50%, -50%);
 }

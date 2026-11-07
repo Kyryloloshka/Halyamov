@@ -95,7 +95,7 @@
   box-shadow: 1px 1px 20px 3px var(--color-darkGray);
 }
 
-.switch:has(.circle:checked) {
+[data-theme="light"] .switch {
   background: var(--color-offwhite);
 }
 
@@ -113,11 +113,11 @@
   box-shadow: 1px 1px 30px 12px white;
 }
 
-.switch:has(.circle:checked) > .sun {
+[data-theme="light"] .switch > .sun {
   opacity: 1;
 }
 
-.switch:has(.circle:checked) > .moon {
+[data-theme="light"] .switch > .moon {
   opacity: 0;
 }
 

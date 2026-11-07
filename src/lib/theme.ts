@@ -4,7 +4,7 @@ export const THEME_STORAGE_KEY = "theme";
 
 // Runs inline in <head> before first paint, so the page never flashes the
 // wrong theme. Keep it tiny and dependency-free.
-export const themeInitScript = `(function(){try{var t=localStorage.getItem('${THEME_STORAGE_KEY}');if(t!=='light'&&t!=='dark')t='dark';var d=document.documentElement;d.setAttribute('data-theme',t);if(t==='dark')d.classList.add('dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');document.documentElement.classList.add('dark');}document.documentElement.classList.add('js');})();`;
+export const themeInitScript = `(function(){try{var t=localStorage.getItem('${THEME_STORAGE_KEY}');if(t!=='light'&&t!=='dark')t='dark';var d=document.documentElement;d.setAttribute('data-theme',t);if(t==='dark')d.classList.add('dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');document.documentElement.classList.add('dark');}})();`;
 
 export const getTheme = (): Theme =>
   document.documentElement.getAttribute("data-theme") === "light"

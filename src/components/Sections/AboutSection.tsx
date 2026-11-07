@@ -73,7 +73,7 @@ const AboutSection = ({
                   >
                     <h3
                       className={`bg-white dark:bg-dark-3 font-semibold rounded-b-lg p-3 ${nudgeLg} ${
-                        index % 2 === 0 ? "rounded-r-lg" : "rounded-s-lg"
+                        index % 2 === 0 ? "rounded-r-lg" : "rounded-l-lg"
                       }`}
                     >
                       {experience.title}
